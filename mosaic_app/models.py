@@ -1,38 +1,173 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 
-class VehicleManagement(models.Model):
-    brand = models.CharField("Brand", max_length=200)
-    car_model = models.CharField("Model", max_length=200)
-    year = models.PositiveIntegerField("Year")
-    mileage = models.PositiveIntegerField()
-    color = models.CharField(max_length=100)
-    vin = models.CharField(max_length=17, unique=True)  # VIN is usually 17 characters long and unique
-    insurance_company = models.CharField(max_length=200)
-    insurance_policy_number = models.CharField(max_length=100, unique=True)  # Assuming this should be unique for each vehicle
-    current_service_schedule = models.DateField()
+
+class Vehicle(models.Model):
+    """
+    Represents individual vehicles with attributes such as make,
+    model, year of manufacture, mileage, color, and related insurance details
+    The plate VIN (Vehicle Identification Number) and insurance policy number are unique for each vehicle entry. 
+     The model also defines a string representation for better readability in the admin interface and other places.
+    """
+    picture=models.FileField(_("Picture"), upload_to='vehicle', max_length=100,null=True)
+    brand = models.CharField(_("Brand"), max_length=200)
+    car_model = models.CharField(_("Car Model "), max_length=200)
+    year = models.PositiveIntegerField(_("Year "))
+    mileage = models.PositiveIntegerField(_("MileAge"))
+    color = models.CharField(_("Color"), max_length=100)
+    plate = models.CharField(_("Plate"),max_length=17, unique=True,null=True)  # VIN is usually 17 characters long and unique
+    insurance_company = models.CharField(_("Insurance Company"), max_length=200)
+    insurance_policy_number = models.CharField(_("Insurance Policy Number"),max_length=100, unique=True)  # Assuming this should be unique for each vehicle
+    current_service_schedule = models.DateField(_("Current Service Schedule"))
 
     def __str__(self):
         return f"{self.make} {self.model} ({self.year})"
+    
 
 class VehicleMaintenance(models.Model):
-    vehicle = models.ForeignKey(VehicleManagement, on_delete=models.CASCADE)  # This creates a relation between VehicleMaintenance and VehicleManagement
-    maintenance_date = models.DateField()
-    service_type = models.CharField(max_length=200)  # Service type field
-    parts_used = models.TextField()  # Parts used as a TextField. You can also consider using a ManyToMany field if you have a parts table.
-    notes = models.TextField()  # Notes regarding the maintenance
-
+    """
+    Represents maintenance records for vehicles. 
+    Each record links to a vehicle (foreign key relation)
+    and has attributes to specify the date of maintenance,
+    the type of service performed, parts used, and any additional notes. 
+    The string representation provides a quick overview of the service type and date for a given vehicle.
+    """
+    vehicle_picture=models.FileField(_("Vehicle Picture"), upload_to='Vehicle_Maintenance_Picture', max_length=100,null=True)
+    # vehicle = models.ForeignKey(model=VehicleManagement, verbose_name=_("Vehicle"), on_delete=models.CASCADE)
+    vehicle = models.ForeignKey(Vehicle, verbose_name=_("Vehicle"), on_delete=models.CASCADE)
+    maintenance_date = models.DateField(_("Maintenance Date"))
+    service_type = models.CharField(_("Service Type "), max_length=200)  # Service type field
+    maintenance_comments = models.TextField(_("Maintenance Comments "),null=True)  # Notes regarding the maintenance
     def __str__(self):
         return f"{self.vehicle} - {self.service_type} on {self.maintenance_date}"
 
 class FundManagement(models.Model):
-    label = models.CharField(max_length=200)
-    transaction_date = models.DateField()
-    account_number = models.CharField(max_length=20, null=True, blank=True)
-    entries = models.TextField()
-    quantities = models.PositiveIntegerField()
-    total = models.DecimalField(max_digits=10, decimal_places=2)
-     
+    """
+    Represents financial management records with attributes for date,
+    account number, entries, quantities, and total amounts.
+    There's also an attribute to track withdrawals, which can either be from cash or labels.
+    """
+    label = models.CharField(_("Label"),max_length=200)
+    transaction_date = models.DateField(_("Transaction Date"))
+    account_number = models.CharField(_("Account Number"),max_length=20, null=True, blank=True)
+    entries = models.TextField(_("Entries"),)
+    quantities = models.PositiveIntegerField(_("Quantities"))
+    total = models.DecimalField(_("Total"),max_digits=10, decimal_places=2)
+    
+    def __str__(self):
+        return f"{self.label}"
+    
+
+
+class ChatHistory(models.Model):
+    MESSAGE_STATUS_CHOICES = [
+        ['sent', _('Sent')],
+        [ 'delivered', _('Delivered')],
+        ['seen', _('Seen')]
+    ]
+    sender = models.ForeignKey('Staff', related_name='sent_messages', on_delete=models.CASCADE, verbose_name=_("Sender"))
+    receiver = models.ForeignKey('Staff', related_name='received_messages', on_delete=models.CASCADE, verbose_name=_("Receiver"))
+    message = models.TextField(_("Message"))
+    message_status = models.CharField(_("Message Status"), max_length=10, choices=MESSAGE_STATUS_CHOICES, default='sent')
+    timestamp = models.DateTimeField(_("Timestamp"), auto_now_add=True)  # Automatically set the field to now when the object is first created.
+
+    class Meta:
+        verbose_name = _("Chat History")
+        verbose_name_plural = _("Chat Histories")
+        ordering = ['timestamp']
+
+    def __str__(self):
+        return f"{self.sender} to {self.receiver} at {self.timestamp}"
+
+
+
+class Staff (models.Model):
+   
+    sex_options = [
+        ('male', _('Male')),
+        ('female', _('Female')),
+    ]
+    
+    marital_choices= [
+        ('single', _('Single')),
+        ('married', _('Married')),
+        ('widow', _('Widow(er)')),
+        ('divorced', _('Divorced')),
+    ]
+
+    title_choices = [
+        ('mr', _('Mr')),
+        ('mrs', _('Mrs')),
+        ('miss', _('Miss')),
+    ]
+    title = models.CharField(_('Title'),choices=title_choices,max_length=1000, null=True, blank=True)
+    first_name = models.CharField(_('First Name'), max_length=1000, null=True)
+    last_name = models.CharField(_('Last Name'), max_length=11000, null=True)
+    biginning_date = models.DateField(_("Beginning date of service"), auto_now=False, auto_now_add=False, null=True, blank=True)
+    employee_no = models.CharField(_("Employee number"), max_length=1000, null=True, blank=True)
+    date_of_birth = models.DateField(_("Date of birth"), null=True, blank=True, auto_now=False, auto_now_add=False)
+    sex = models.CharField(_("Gender"), choices=sex_options, max_length=1000, null=True, blank=True)
+    phone = models.CharField(_("Phone"), max_length=1000, null=True, blank=True)
+    email = models.EmailField(_("Email address"), null=True, blank=True, max_length=1000) 
+    emergency_phone = models.CharField(_("Emergency Phone"), max_length=1000, null=True, blank=True)
+    # nationality = models.CharField("country.Country", verbose_name=_("nationality"), on_delete=models.CASCADE, null=True, blank=True)
+    nationality = models.CharField(max_length=50, verbose_name=_("nationality"), null=True, blank=True)
+
+    id_card = models.CharField(_("NID NUMBER"), max_length=1000, null=True, blank=True)
+    place_of_issue = models.CharField(_("Place of issue"), max_length=1000, null=True, blank=True)
+    Insurance_number = models.CharField(_("Insurance Number "), max_length=1000, null=True, blank=True)
+    passport_photo = models.ImageField(_("Passport Photo"), upload_to='employees/photos/', max_length=1000, null=True, blank=True)
+    # employee_bank = models.CharField("Bank", verbose_name=_("Bank"), null=True, blank=True, on_delete=models.CASCADE)
+    employee_bank = models.CharField(max_length=50, verbose_name=_("Bank"), null=True, blank=True)
+    bank_account = models.CharField(_("Account Number"), null=True, blank=True, max_length=1000)
+    marital_status = models.CharField(_("Maritial status"), choices=marital_choices, max_length=1000, null=True, blank=True)
+    # position = models.CharField(_("Position"), help_text='CEO, Secretariat,accountant,internee', on_delete=models.CASCADE, null=True, blank=False)
+    position = models.CharField(_("Position"), max_length=100, help_text='CEO, Secretariat,accountant,internee', null=True, blank=False)
+
+    
+    class Meta:
+        verbose_name = _("Staff ")
+        verbose_name_plural = _("Staffs")
+
+    def __str__(self):
+        return self.name
+
+
+# Create your models here.
+class Invoice(models.Model):
+   
+    
+    COMMERCIAL_INVOICE = 'commercial_invoice'
+    OTHER_INVOICE = 'other_invoice'
+    
+    INVOICE_TYPE_CHOICES = [
+        (COMMERCIAL_INVOICE, _('Commercial Invoice')),
+        (OTHER_INVOICE, _('Other Invoice')),
+    ]
+
+    invoice_type = models.CharField(max_length=50,choices=INVOICE_TYPE_CHOICES,default=COMMERCIAL_INVOICE,)
+    
+    # invoice_type = models.CharField(max_length=100,choices=INVOICE_TYPE_CHOICES,default='regular')
+    invoice_id = models.CharField(max_length=50, unique=True)
+    client_information = models.TextField()
+    invoice_object = models.TextField(help_text="Reason for the invoice")
+    invoice_location = models.CharField(max_length=255)
+    
+    def __str__(self):
+        return self.invoice_id
+
+class Items(models.Model):
+    
+    invoice = models.ForeignKey(Invoice,related_name='items',on_delete=models.CASCADE)
+    designations = models.CharField(max_length=255)
+    quantity_or_days = models.IntegerField()
+    unit_price = models.DecimalField(max_digits=10, decimal_places=2)
+    monthly_price = models.DecimalField(max_digits=10, decimal_places=2)
+    
+    def __str__(self):
+        return self.designations
+# Assume invoice is an instance of Invoice
 
 
 
@@ -42,20 +177,10 @@ class FundManagement(models.Model):
 This module defines the data models for a vehicle management system in Django.
 
 1. VehicleManagement:
-    Represents individual vehicles with attributes such as make,
-    model, year of manufacture, mileage, color, and related insurance details
-    . The VIN (Vehicle Identification Number) and insurance policy number are unique for each vehicle entry. 
-     The model also defines a string representation for better readability in the admin interface and other places.
 
 2. VehicleMaintenance:
-    Represents maintenance records for vehicles. 
-    Each record links to a vehicle (foreign key relation)
-    and has attributes to specify the date of maintenance,
-    the type of service performed, parts used, and any additional notes. 
-    The string representation provides a quick overview of the service type and date for a given vehicle.
+    
 
 3. FundManagement:
-    Represents financial management records with attributes for date,
-    account number, entries, quantities, and total amounts.
-    There's also an attribute to track withdrawals, which can either be from cash or labels.
+    
 """
