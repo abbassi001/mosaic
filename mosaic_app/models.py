@@ -60,7 +60,7 @@ class FundManagement(models.Model):
     
 
 
-class ChatHistory(models.Model):
+class Chat(models.Model):
     MESSAGE_STATUS_CHOICES = [
         ['sent', _('Sent')],
         [ 'delivered', _('Delivered')],
@@ -73,8 +73,8 @@ class ChatHistory(models.Model):
     timestamp = models.DateTimeField(_("Timestamp"), auto_now_add=True)  # Automatically set the field to now when the object is first created.
 
     class Meta:
-        verbose_name = _("Chat History")
-        verbose_name_plural = _("Chat Histories")
+        verbose_name = _("Chat")
+        verbose_name_plural = _("Chats")
         ordering = ['timestamp']
 
     def __str__(self):
@@ -101,6 +101,8 @@ class Staff (models.Model):
         ('mrs', _('Mrs')),
         ('miss', _('Miss')),
     ]
+    passport_photo = models.ImageField(_("Passport Photo"), upload_to='employees/photos/', max_length=1000, null=True, blank=True)
+
     title = models.CharField(_('Title'),choices=title_choices,max_length=1000, null=True, blank=True)
     first_name = models.CharField(_('First Name'), max_length=1000, null=True)
     last_name = models.CharField(_('Last Name'), max_length=11000, null=True)
@@ -117,7 +119,6 @@ class Staff (models.Model):
     id_card = models.CharField(_("NID NUMBER"), max_length=1000, null=True, blank=True)
     place_of_issue = models.CharField(_("Place of issue"), max_length=1000, null=True, blank=True)
     Insurance_number = models.CharField(_("Insurance Number "), max_length=1000, null=True, blank=True)
-    passport_photo = models.ImageField(_("Passport Photo"), upload_to='employees/photos/', max_length=1000, null=True, blank=True)
     # employee_bank = models.CharField("Bank", verbose_name=_("Bank"), null=True, blank=True, on_delete=models.CASCADE)
     employee_bank = models.CharField(max_length=50, verbose_name=_("Bank"), null=True, blank=True)
     bank_account = models.CharField(_("Account Number"), null=True, blank=True, max_length=1000)
@@ -157,7 +158,7 @@ class Invoice(models.Model):
     def __str__(self):
         return self.invoice_id
 
-class Items(models.Model):
+class Item(models.Model):
     
     invoice = models.ForeignKey(Invoice,related_name='items',on_delete=models.CASCADE)
     designations = models.CharField(max_length=255)
@@ -167,6 +168,13 @@ class Items(models.Model):
     
     def __str__(self):
         return self.designations
+    
+
+    def save(self, *args, **kwargs):
+        self.monthly_price=self.quantity_or_days * self.unit_price
+        
+        super().save(*args, **kwargs)
+        
 # Assume invoice is an instance of Invoice
 
 
