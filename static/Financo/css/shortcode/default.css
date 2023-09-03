@@ -1461,6 +1461,14 @@ textarea:focus {
     background: #006B63
 }
 
+.bg-purple {
+    background: #601a63;
+}
+
+.text-purple {
+    color: #601a63 !important;
+}
+
 .bg-blue {
     background: #002E5B
 }
@@ -1495,9 +1503,9 @@ textarea:focus {
     position: relative;
 }
 
-.bg-1 {
+/* .bg-1 {
     background-image: url(../../img/bg/1.jpg);
-}
+} */
 
 .bg-2 {
     background-image: url("../../img/bg/2.jpg");

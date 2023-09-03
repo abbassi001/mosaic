@@ -16,7 +16,7 @@ a.meanmenu-reveal{display:none}
   font-family: "montserratlight";
   font-size: 1px;
   height: 22px;
-  line-height: 22px;
+  /* line-height: 22px; */
   padding: 13px 0 11px;
   right: 0;
   text-decoration: none;
