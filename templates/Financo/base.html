@@ -1,0 +1,256 @@
+{% load static %}
+
+<!doctype html>
+<html class="no-js" lang="en">
+
+
+<!-- Mirrored from htmldemo.net/financo/financo/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 25 Aug 2023 16:09:43 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Home One || Financo</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'Financo/img/favicon.ico' %}">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600" rel="stylesheet">
+
+    <!-- All css here -->
+    <link rel="stylesheet" href="{% static 'Financo/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Financo/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Financo/css/shortcode/shortcodes.css' %}">
+    <link rel="stylesheet" href="{% static 'Financo/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'Financo/css/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'Financo/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'Financo/css/responsive.css' %}">
+
+
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <!-- Header Area Start -->
+    <header class="header-area">
+        <div class="header-top blue-bg fix d-lg-block d-md-block d-none">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-3">
+                        <span>Welcome to MOSAIC INTERNATIONAL</span>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="header-icons">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-3">
+                        <div class="search-container">
+                            <form action="#" method="post">
+                                <input placeholder="" type="text">
+                                <button><i class="fa fa-search"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-main bg-purple white">
+            <div class="container">
+                <div class="header-main-wrapper">
+                    <div class="logo-wrapper">
+                        <div class="logo">
+                            <a href="index.html"><img src="{% static 'images/logo.png' %}" alt="MOSAIC" /></a>
+                        </div>
+                    </div>
+                    <div class="header-main-content">
+                        <div class="header-info">
+                            <img src="{% static 'Financo/img/icons/phone.png' %}" alt=""> <br>
+                            <div class="header-info-text">
+                                <h4><a href="telto:+235 62 68 68 12">+235 62 68 68 12</a></h4>
+                                <span>We are open 8 am - 5pm</span>
+                            </div>
+                        </div>
+                        <div class="header-info">
+                            <img src="{% static 'Financo/img/icons/message.png' %}" alt="">
+                            <div class="header-info-text">
+                                <h4><a href="mailto:Contact@mozaikinternational.com">Contact@mozaikinternational.td</a></h4>
+                                <span>You can mail us</span>
+                            </div>
+                        </div>
+                    </div>
+                    {% comment %} <div class="quote-btn">
+                        <button>Get a Quote</button>
+                    </div> {% endcomment %}
+                </div>
+            </div>
+        </div>
+        <!-- Main Menu Area Start -->
+        <div class="mainmenu-area fixed header-sticky d-lg-block d-none">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-12">
+                        <div class="main-menu text-center">
+                            <nav>
+                                <ul>
+                                    <li>
+                                        <a href="/">HOME</a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'about-us' %}">ABOUT US</a>
+                                    </li>
+                                    <li><a href="services">SERVICES</a>
+                                    </li>
+                                    <li><a href="{% url 'admin:login' %}">LOGIN</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Main Menu Area Start -->
+        <!-- Mobile Menu Area start -->
+        <div class="mobile-menu-area d-lg-none">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12">
+                        <div class="mobile-menu">
+                            <nav id="dropdown">
+                                <ul>
+                                    <li>
+                                        <a href="index.html">HOME</a>
+                                    </li>
+                                    <li>
+                                        <a href="about.html">ABOUT US</a>
+                                    </li>
+                                    <li>
+                                        <a href="services.html">SERVICES</a>
+                                    </li>
+                                    <li><a href="contact.html">CONTACT</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu Area end -->
+    </header>
+    <!-- Header Area End -->
+
+    {% block content %}
+    
+    {% endblock content %}
+    
+
+    <!--Start of Footer Widget-area-->
+    <div class="footer-widget-area bg-4 overlay-blue pt-110 pb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-3 col-lg-3 col-md-6 col-12 order-md-1 order-1">
+                    <div class="single-footer-widget">
+                        <div class="footer-logo">
+                            <a href="index.html"><img src="{% static 'images/logo.png' %}" alt="FINANCO"></a>
+                        </div>
+                        <p  style="text-align: justify;">At MOSAIC INTERNATIONAL, we turn your logistical challenges into business advantages. With 25+ years of expertise and 24/7 support, we're more than a service provider—we're your strategic partner for success.</p>
+                        
+                        <!-- mailchimp-alerts Start -->
+                        <div class="mailchimp-alerts text-centre fix text-small">
+                            <div class="mailchimp-submitting"></div>
+                            <!-- mailchimp-submitting end -->
+                            <div class="mailchimp-success"></div>
+                            <!-- mailchimp-success end -->
+                            <div class="mailchimp-error"></div>
+                            <!-- mailchimp-error end -->
+                        </div>
+                        <!-- mailchimp-alerts end -->
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-6 col-12 order-md-3 order-2">
+                    <div class="single-footer-widget mt-sm-30">
+                        <h3>Real Estate Fest</h3>
+                        
+                        <div class="footer-widget-content">
+                            <h5></h5>
+                            <span>The goal is to highlight how MOSAIC's multifaceted services enhance real estate projects by boosting efficiency, reducing costs, and driving success</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-6 col-12 order-md-2 order-3">
+                    <div class="single-footer-widget">
+                        <h3>QUICK LINK</h3>
+                        <ul class="footer-list">
+                            <li><a href="#">About us</a></li>
+                            <li><a href="#">Services</a></li>
+                            <li><a href="#">Projects</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-6 col-12 order-md-4 order-4">
+                    <div class="single-footer-widget mt-sm-30">
+                        <h3>CONTACT US</h3>
+                        <div class="footer-contact-info">
+                            <img src="{% static 'Financo/img/icons/f-map.png' %}" alt="">
+                            <span class="block">Ndjamena,Chad<br>
+                                siege social:Quartier Sabangali</span>
+                        </div>
+                        <div class="footer-contact-info">
+                            <img src="{% static 'Financo/img/icons/f-phone.png' %}" alt="">
+                            <span class="block">Telephone : +235 62 68 68 12<br></span>
+                        </div>
+                        <div class="footer-contact-info">
+                            <img src="{% static 'Financo/img/icons/f-globe.png' %}" alt="">
+                            <span class="block"><a href="mailto:Contact@mozaikinternational.com"></a><b>Email:Contact@mozaikinternational.td<br>
+                                Web : www.mosaicinternatinal.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End of Footer Widget-area-->
+    <!-- Start of Footer area -->
+    <footer class="footer-area bg-blue text-center ptb-30">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="footer-text">
+                        <span class="block">Copyright&copy; <script>document.write(new Date().getFullYear() + ' ');</script>MOSAIC. All rights reserved.</span>
+                        <p>
+                            <span>Developed by: <a href="mailto:abbassiadamou55@gmail.com">ABBAS ADAM ABBAS</a></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End of Footer area -->
+
+    <!-- All js here -->
+    <script src={% static 'Financo/js/vendor/modernizr-3.6.0.min.js' %}></script>
+    <script src={% static 'Financo/js/vendor/jquery-3.6.0.min.js' %}></script>
+    <script src={% static 'Financo/js/vendor/jquery-migrate-3.3.2.min.js' %}></script>
+    <script src={% static 'Financo/js/popper.min.js' %}></script>
+    <script src={% static 'Financo/js/bootstrap.min.js' %}></script>
+    <script src={% static 'Financo/js/owl.carousel.min.js' %}></script>
+    <script src={% static 'Financo/js/ajax-mail.js' %}></script>
+    <script src={% static 'Financo/js/jquery.ajaxchimp.min.js' %}></script>
+    <script src={% static 'Financo/js/jquery.magnific-popup.js' %}></script>
+    <script src={% static 'Financo/js/counterup.js' %}></script>
+    <script src={% static 'Financo/js/plugins.js' %}></script>
+    <script src={% static 'Financo/js/canvasjs.min.js' %}></script>
+    <script src={% static 'Financo/js/canvas-active.js' %}></script>
+    <script src={% static 'Financo/js/main.js' %}></script>
+</body>
+
+
+</html>

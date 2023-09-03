@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    'django.contrib.humanize',
+    
     'mosaic_app',
 ]
 
@@ -70,6 +73,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'mosaic_project.wsgi.application'
+
+LOGIN_REDIRECT_URL = "/"
 
 
 # Database

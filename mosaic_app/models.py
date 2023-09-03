@@ -1,4 +1,7 @@
+import random, string
+from typing import Iterable, Optional
 from django.db import models
+from django.conf import settings
 from django.utils.translation import gettext_lazy as _
 
 
@@ -58,29 +61,41 @@ class FundManagement(models.Model):
     def __str__(self):
         return f"{self.label}"
     
-
-
+    class Meta:
+        verbose_name = _("Fund management ")
+        verbose_name_plural = _("Fund managements")
+    
 class Chat(models.Model):
-    MESSAGE_STATUS_CHOICES = [
-        ['sent', _('Sent')],
-        [ 'delivered', _('Delivered')],
-        ['seen', _('Seen')]
-    ]
-    sender = models.ForeignKey('Staff', related_name='sent_messages', on_delete=models.CASCADE, verbose_name=_("Sender"))
-    receiver = models.ForeignKey('Staff', related_name='received_messages', on_delete=models.CASCADE, verbose_name=_("Receiver"))
-    message = models.TextField(_("Message"))
-    message_status = models.CharField(_("Message Status"), max_length=10, choices=MESSAGE_STATUS_CHOICES, default='sent')
-    timestamp = models.DateTimeField(_("Timestamp"), auto_now_add=True)  # Automatically set the field to now when the object is first created.
-
+    title = models.CharField(_("Title"), null=True, blank=True, max_length=50)
+    reference_code = models.CharField(_("Reference code"), unique=True, max_length=50, null=True)
+    participants = models.ManyToManyField(settings.AUTH_USER_MODEL, verbose_name=_("Participants"))
+    
     class Meta:
         verbose_name = _("Chat")
         verbose_name_plural = _("Chats")
-        ordering = ['timestamp']
 
     def __str__(self):
-        return f"{self.sender} to {self.receiver} at {self.timestamp}"
+        return self.title
+    
+    def save(self, *args, **kwargs):
+        if not self.reference_code:
+            ref = "".join(random.choice(string.ascii_lowercase+string.digits) for i in range(32))
+            self.reference_code = ref
+        
+        super().save(*args, **kwargs)
 
+class ChatHistory(models.Model):
+    chat = models.ForeignKey("Chat", verbose_name=_("Chat"), related_name='histories', on_delete=models.CASCADE)    
+    sender = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='sent_messages', on_delete=models.CASCADE, verbose_name=_("Sender"))
+    message = models.TextField(_("Message"))
+    timestamp = models.DateTimeField(_("Timestamp"), auto_now_add=True)  # Automatically set the field to now when the object is first created.
 
+    class Meta:
+        verbose_name = _("Chat History")
+        verbose_name_plural = _("Chat Histories")
+
+    def __str__(self):
+        return f"{self.chat}"
 
 class Staff (models.Model):
    
@@ -107,7 +122,7 @@ class Staff (models.Model):
     first_name = models.CharField(_('First Name'), max_length=1000, null=True)
     last_name = models.CharField(_('Last Name'), max_length=11000, null=True)
     biginning_date = models.DateField(_("Beginning date of service"), auto_now=False, auto_now_add=False, null=True, blank=True)
-    employee_no = models.CharField(_("Employee number"), max_length=1000, null=True, blank=True)
+    employee_no = models.CharField(_("Employee number"), max_length=1000, unique=True, null=True, blank=True)
     date_of_birth = models.DateField(_("Date of birth"), null=True, blank=True, auto_now=False, auto_now_add=False)
     sex = models.CharField(_("Gender"), choices=sex_options, max_length=1000, null=True, blank=True)
     phone = models.CharField(_("Phone"), max_length=1000, null=True, blank=True)
@@ -132,7 +147,7 @@ class Staff (models.Model):
         verbose_name_plural = _("Staffs")
 
     def __str__(self):
-        return self.name
+        return f"{self.first_name} {self.last_name}"
 
 
 # Create your models here.
