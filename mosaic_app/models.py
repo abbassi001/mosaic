@@ -13,7 +13,7 @@ class Vehicle(models.Model):
     The plate VIN (Vehicle Identification Number) and insurance policy number are unique for each vehicle entry. 
      The model also defines a string representation for better readability in the admin interface and other places.
     """
-    picture=models.FileField(_("Picture"), upload_to='vehicle', max_length=100,null=True)
+    picture=models.FileField(_("Picture"), upload_to='vehicle',null=True)
     brand = models.CharField(_("Brand"), max_length=200)
     car_model = models.CharField(_("Car Model "), max_length=200)
     year = models.PositiveIntegerField(_("Year "))
@@ -25,7 +25,7 @@ class Vehicle(models.Model):
     current_service_schedule = models.DateField(_("Current Service Schedule"))
 
     def __str__(self):
-        return f"{self.make} {self.model} ({self.year})"
+        return f"{self.brand} {self.car_model}"
     
 
 class VehicleMaintenance(models.Model):
