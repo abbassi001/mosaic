@@ -3,8 +3,6 @@
 <!doctype html>
 <html class="no-js" lang="en">
 
-
-<!-- Mirrored from htmldemo.net/financo/financo/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 25 Aug 2023 16:09:43 GMT -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -67,7 +65,9 @@
                 <div class="header-main-wrapper">
                     <div class="logo-wrapper">
                         <div class="logo">
-                            <a href="index.html"><img src="{% static 'images/logo.png' %}" alt="MOSAIC" /></a>
+                            <a href="index.html">
+                                <img src="{% static 'images/logo.PNG' %}" alt="MOSAIC" />
+                            </a>
                         </div>
                     </div>
                     <div class="header-main-content">
@@ -222,7 +222,9 @@
     <!-- Question Ask Area Start -->
     <div class="question-ask-area">
         {% comment %} <button class="toggle"><img src="{% static 'Financo/img/icons/ques.png' %}" alt=""></button> {% endcomment %}
-        <button class="toggle"><img src="{% static 'images/whatsapp.png' %}" height=70px alt=""></button>
+        <a href="https://api.whatsapp.com/send?phone=33663037034" class="toggleee">
+            <img src="{% static 'images/whatsapp.png' %}" height=70px alt="">
+        </a>
 
         <div class="question-popoup">
             <h6>Need Any Help?</h6>

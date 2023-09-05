@@ -11,9 +11,11 @@
         content="admin, estimates, bootstrap, business, corporate, creative, management, minimal, modern,  html5, responsive">
     <meta name="author" content="Dreamguys - Bootstrap Admin Template">
     <meta name="robots" content="noindex, nofollow">
-    <title>Dreams Pos admin template</title>
+    <title>{{ title }}</title>
 
-    <link rel="shortcut icon" type="image/x-icon" href="{% static '/dreams/assets/img/favicon.png' %}">
+    <link rel="stylesheet" href="{% block stylesheet %}{% static "admin/css/base.css" %}{% endblock %}">
+
+    <link rel="shortcut icon" type="image/x-icon" href="{% static '/images/logo-small.png' %}">
 
     <link rel="stylesheet" href="{% static '/dreams/assets/css/bootstrap.min.css' %}">
 
@@ -25,6 +27,48 @@
     <link rel="stylesheet" href="{% static '/dreams/assets/plugins/fontawesome/css/all.min.css' %}">
 
     <link rel="stylesheet" href="{% static '/dreams/assets/css/style.css' %}">
+
+    {% block extrastyle %}
+    
+    {% endblock %}
+
+    <style>
+        ul li {
+            list-style-type: none;
+        }
+        
+        .object-tool {
+            list-style: none;
+        }
+        .object-tool li{
+            list-style-type: none;
+        }
+        .object-tool li a{
+            background-color: rgb(20, 59, 75);
+            color: #ffffff;
+            border-radius: 8px;
+            padding-top: 5px;
+            padding-right: 3px;
+            padding-bottom: 5px;
+        }
+
+        .custom-form-control {
+            display: block;
+            padding: -0.625rem 0.75rem;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #212529;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #ced4da;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            border-radius: 0.25rem;
+            transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+        }
+    </style>
 </head>
 
 <body>
@@ -99,13 +143,13 @@
                 
                 <li class="nav-item dropdown has-arrow main-drop">
                     <a href="javascript:void(0);" class="dropdown-toggle nav-link userset" data-bs-toggle="dropdown">
-                    <span class="user-img"><img src="{% static '/dreams/assets/img/profiles/avator1.jpg' %}" alt="">
+                    <span class="user-img"><img src="{% static '/dreams/assets/img/profiles/avator1.jpg' %}" alt="user">
                     <span class="status online"></span></span>
                     </a>
                     <div class="dropdown-menu menu-drop-user">
                     <div class="profilename">
                     <div class="profileset">
-                    <span class="user-img"><img src="{% static '/dreams/assets/img/profiles/avator1.jpg' %}" alt="">
+                    <span class="user-img"><img src="{% static '/dreams/assets/img/profiles/avator1.jpg' %}" alt="user">
                     <span class="status online"></span></span>
                     <div class="profilesets">
                     <h6>{{request.user}}</h6>
@@ -123,7 +167,9 @@
 
             <div class="dropdown mobile-user-menu">
                 <a href="javascript:void(0);" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
-                    aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                    aria-expanded="false">
+                    <img src="{% static '/dreams/assets/img/profiles/avator1.jpg' %}" class="rounded-circle" alt="">
+                </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="profile.html">My Profile</a>
                     <a class="dropdown-item" href="generalsettings.html">Settings</a>
@@ -164,9 +210,13 @@
         <div class="page-wrapper">
 
             <div class="content">
-                {% block content %}
+                <div class="card">
+                    <div class="card-body">
+                        {% block content %}
                 
-                {% endblock content %}
+                        {% endblock content %}
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -186,6 +236,12 @@
     <script src="{% static '/dreams/assets/plugins/apexchart/chart-data.html' %}"></script>
 
     <script src="{% static '/dreams/assets/js/script.html' %}"></script>
+
+    
+    {% block scripts %}
+        
+    {% endblock scripts %}
+        
 </body>
 
 </html>

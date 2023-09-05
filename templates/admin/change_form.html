@@ -6,7 +6,9 @@
 {{ media }}
 {% endblock %}
 
-{% block extrastyle %}{{ block.super }}<link rel="stylesheet" href="{% static "admin/css/forms.css" %}">{% endblock %}
+{% block extrastyle %}{{ block.super }}
+<link rel="stylesheet" href="{% static "admin/css/forms.css" %}">
+{% endblock %}
 
 {% block coltype %}colM{% endblock %}
 
@@ -79,3 +81,70 @@
 </div>
 </form></div>
 {% endblock %}
+
+
+{% block scripts %}
+
+<script>
+  $(document).ready(function(){
+    // $(".form-row").find("div").addClass("mb-2 ")
+    // $(".form-row").find("label").addClass("col-md-2 col-sm-12");
+    // $(".form-row").find("input:not(:checkbox), select").css("width", "calc("+$($(this).width())+")").addClass("custom-form-control col-md-10 col-sm-12");
+    $(".form-row").find("textarea").attr("rows", 2).css("width", "calc("+$($(this).width())+")").addClass("custom-form-control col-md-10 col-sm-12");
+    // $(".form-row").find(".help").removeAttr("row");
+    
+
+    $("fieldset.module > h2 ").addClass("bg-primary text-light pl-1 mb-2")
+    
+
+    var profile = $(".form-row > div > p a").attr('href');
+    if (typeof(profile) !== "undefined") {
+      if (profile.length > 0) {
+
+        $(".form-row > div > p a")
+        .before("<br><img src='{{request.META.host}}"+profile+"' class='img-thumbnail' width='150px' height='150px' /><br>");
+      }
+      $("#id_passport_photo").on("change", function(){
+        
+        if (typeof(FileReader) != "undefined")
+        {
+          var reader = new FileReader();
+          $("#preview").remove();
+
+          reader.onload = function (e) {
+            $("#id_passport_photo").before("<img id='preview' src='{{request.META.host}}"+e.currentTarget.result+"' class='img-thumbnail ml-5' width='150px' height='150px' /><br>");
+              
+          };
+          
+          reader.readAsDataURL($(this)[0].files[0]);
+        }
+        else{
+          alert("this browser does not support filereader or js not enabled")
+        }
+      });
+      
+    }
+    else {
+      $("#id_passport_photo").on("change", function(){
+        
+        if (typeof(FileReader) != "undefined")
+        {
+          var reader = new FileReader();
+          $("#preview").remove();
+
+          reader.onload = function (e) {
+            $("#id_passport_photo").before("<img id='preview' src='{{request.META.host}}"+e.currentTarget.result+"' class='img-thumbnail ml-5' width='150px' height='150px' /><br>");
+              
+          };
+          
+          reader.readAsDataURL($(this)[0].files[0]);
+        }
+        else{
+          alert("this browser does not support filereader or js not enabled")
+        }
+      });
+    }
+  });
+</script>
+        
+{% endblock scripts %}

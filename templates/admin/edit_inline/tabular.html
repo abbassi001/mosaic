@@ -1,0 +1,22 @@
+{% extends "admin/edit_inline/tabular.html" %}
+
+{% load i18n admin_urls %}
+
+{% for field in inline_admin_form %}
+    <div class="form-row{% if field.field.errors %} errors{% endif %}">
+        <div class="form-group col">
+            {{ field.label_tag }}
+            {{ field }}
+            {% if not inline_admin_form.original and field.name == 'DELETE' %}
+                <button type="button" class="delete-button" data-inline-id="{{ field.field.widget.attrs.data_inline_id }}">
+                    Delete
+                </button>
+            {% endif %}
+            {% if field.field.errors %}
+                <div class="errors">
+                    {{ field.errors }}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endfor %}
