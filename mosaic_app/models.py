@@ -173,7 +173,7 @@ class Invoice(models.Model):
     def __str__(self):
         return self.invoice_id
 
-class Item(models.Model):
+class InvoiceItem(models.Model):
     
     invoice = models.ForeignKey(Invoice,related_name='items',on_delete=models.CASCADE)
     designations = models.CharField(max_length=255)

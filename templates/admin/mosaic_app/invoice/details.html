@@ -1,0 +1,129 @@
+{% extends 'admin/base.html' %}
+
+{% load static i18n admin_urls admin_list humanize customtag %}
+
+{% block content %}
+    <div class="col-lg-12">
+        <div class="row chat-window">
+
+            <div class="col-lg-12 col-xl-12 chat-cont-left">
+                <div class="card mb-sm-3 mb-md-0 contacts_card flex-fill">
+                    
+                    <div class="card-body contacts_body">
+                        <img src="{% static '/images/header.png' %}" alt="header" class="w-100">
+                        
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            {{ invoiceItemFactory.management_form }}
+                            <table class="table table-bodered border ">
+                                <tr>
+                                    <td colspan="2">{% trans 'COMMERCIAL INVOICE' %}</td>
+                                    <td>001/2023</td>
+                                    <td colspan="2">{% trans 'DATE' %} 19/01/2023</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5">
+                                        &nbsp;
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3">{% trans 'SUPPLIER/CARRIER' %}</td>
+                                    <td colspan="2">{% trans 'CLIENT' %}</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3">
+                                        <div>MOSAIC INTERNATIONAL</div>
+                                        <div>BP: 851 N'DJAMENA TCHAD</div>
+                                        <div>TEL: 62 68 68 12</div>
+                                        <div>Email: contact@mozaikinternational.td</div>
+                                    </td>
+                                    <td colspan="2">
+                                        <div>ENCOBAT</div>
+                                        <div>BP: 5975 N'DJAMENA TCHAD</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div>OBJET:</div>
+                                        <div>LIEU DE DEVELOPPEMNT:</div>
+                                    </td>
+                                    <td colspan="4">
+                                        <div>Location Citerne Ravitailleur</div>
+                                        <div>BADILA ET MANGARA</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>{% trans 'Designation' %}</td>
+                                    <td>{% trans 'Qty/Days' %}</td>
+                                    <td>{% trans 'Price per Unit/Day' %}</td>
+                                    <td>{% trans 'Monthly Amount' %}</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5">
+                                        {{ invoiceItemFactory.non_form_errors }}
+                                    </td>
+                                </tr>
+                                
+                                {% for form in invoiceItemFactory %}
+                                    {% if form.errors %}
+                                        <tr>
+                                            <td colspan="5">{{ form.errors }}</td>
+                                        </tr>
+                                    {% endif %}
+                                    
+                                    <tr class="form-tr">
+                                        <td class="d-none">{{ form.id }}</td>
+                                        <td> {{ form.designations }} </td>
+                                        <td> {{ form.quantity_or_days }} </td>
+                                        <td> {{ form.unit_price }} </td>
+                                        <td> {{ form.monthly_price }} </td>
+                                    </tr>
+
+                                {% endfor %}
+                                <tr class="new-row"></tr>
+
+                                <tr>
+                                    <td colspan="3"><b><strong>{% trans 'TOTAL' %}</strong></b></td>
+                                    <td><strong><b>123546987</b></strong></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5">
+                                        <span class="btn btn-outline-info btn-add-item mt-2"><i class="fa fa-plus"></i> <strong>Add item</strong></span>
+                                        <button type="submit" class="btn btn-primary mt-2"><i class="fa fa-save"></i> Save Now</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                            
+
+                        <img src="{% static '/images/footer.png' %}" alt="header" class="w-100">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock content %}
+
+
+{% block scripts %}
+    <script>
+        newTr = $(".form-tr").last().html();
+        $(".btn-add-item").on("click", function(){
+            // $(".new-row").before("<tr>"+newTr+"</tr>");
+            const newRow = $('.form-tr:last').clone();
+            newRow.find('input').val(''); // Clear input values in the new row
+            newRow.insertBefore('.new-row'); // Insert the new row before .new-row
+            
+            // attachRowListeners(newRow); // Attach event listeners to the new row
+            // updateTotalPrice();
+
+            $('#id_form-TOTAL_FORMS').val($('.form-tr').length); // Update the TOTAL_FORMS field
+            $('#id_form-INITIAL_FORMS').val($('.form-tr').length); // Update the INITIAL_FORMS field
+            $('#id_form-MIN_NUM_FORMS').val(0); // Update the MIN_NUM_FORMS field
+            $('#id_form-MAX_NUM_FORMS').val(1000); // Update the MAX_NUM_FORMS field
+        });
+
+    </script>
+{% endblock scripts %}

@@ -6,8 +6,10 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import admin
 from django.urls.resolvers import URLPattern
 from django.contrib.auth.models import User
+from django.utils.html import format_html
 from django.db.models import Q
 from .models import * 
+from .forms import *
 
 # Register your models here.
 @admin.register(Vehicle)
@@ -119,18 +121,55 @@ class StaffAdmin(admin.ModelAdmin):
     list_display = ('first_name', 'last_name', 'position')
     # list_filter = ('position', 'sex')
     
-class ItemInline(admin.TabularInline):
-    model = Item
+class InvoiceItemInline(admin.TabularInline):
+    model = InvoiceItem
     extra=2 
     readonly_fields=['monthly_price']
 
     
 @admin.register(Invoice) 
 class InvoiceAdmin(admin.ModelAdmin):
-    list_display = ('invoice_id', 'invoice_type', 'invoice_location')
+    list_display = ('invoice_id', 'invoice_type', 'invoice_location', 'action')
     # list_filter = ('invoice_type', )
+        
+    def action(self, obj):
+        link = "<a class='btn btn-info' href='%s/details'>Details</a>"%obj.id
+        return format_html(link)
     
-    inlines=[ItemInline]
+    def get_urls(self):
+        urls = super().get_urls()
+        custom_urls = [
+            path("<int:invoice_id>/details/", self.admin_site.admin_view(self.details), name="invoice-details"),
+        ]
+        return custom_urls + urls
+    
+    def details(self, request, invoice_id, *args, **kwargs):
+        model = Chat
+        template_name = "admin/mosaic_app/invoice/details.html"
+        invoice = get_object_or_404(Invoice, id=invoice_id)
+        items = InvoiceItem.objects.filter(invoice=invoice)
+        invoiceItemFactory = InvoiceItemFormset(request.POST or None, queryset=items)
+        
+        if request.method == 'POST':
+            if invoiceItemFactory.is_valid():
+                instances = invoiceItemFactory.save(commit=False)
+                for instance in instances:
+                    instance.invoice = invoice  # Assign the invoice to each item
+                    instance.save()
+                return redirect("admin:invoice-details", invoice.id)
+            
+        context = dict(
+            self.admin_site.each_context(request),
+            opts = model._meta,
+            add = self.has_add_permission(request),
+            change = self.has_change_permission(request),
+            app_label = "mosaic_app",
+            invoiceItemFactory = invoiceItemFactory,
+            has_add_permission = self.has_add_permission(request),
+            app_list = self.admin_site.get_app_list(request)
+        )
+        
+        return render(request, template_name=template_name, context=context)
     
 
 
