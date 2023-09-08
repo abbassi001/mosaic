@@ -9,7 +9,7 @@
             <div class="col-lg-5 col-xl-4 chat-cont-left">
                 <div class="card mb-sm-3 mb-md-0 contacts_card flex-fill">
                     <div class="card-header chat-search">
-                        <a href="{% url 'admin:new-chat' %}" class="btn btn-info">New Chat</a>
+                        <a href="{% url 'admin:new-chat' %}" class="btn btn-info text-dark">New Chat</a>
                     </div>
                     <div class="card-body contacts_body chat-users-list chat-scroll">
                         {% for chat in chats %}
@@ -23,10 +23,10 @@
                                 <div class="media-body flex-grow-1">
                                     <div>
                                         <div class="user-name d-flex justify-content-between">
-                                            <div>{{chat|get_chat_name:request|title}}</div>
+                                            <div class="text-dark">{{chat|get_chat_name:request|title}}</div>
                                             <div class="text-secondary">{{chat.histories.last.timestamp|naturaltime}}</div>
                                         </div>
-                                        <div class="user-last-chat">{{chat.histories.last.message|truncatechars:20}}</div>
+                                        <div class="user-last-chat text-dark">{{chat.histories.last.message|truncatechars:20}}</div>
                                     </div>
                                     <div>
                                         
