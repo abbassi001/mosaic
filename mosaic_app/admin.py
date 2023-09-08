@@ -56,12 +56,10 @@ class ChatAdmin(admin.ModelAdmin):
         my_chats = Chat.objects.filter(participants__id=request.user.id)
         removed_users = []
         for mc in my_chats:
-            print(mc.participants)
             if mc.participants.count() == 2:
                 for usr in mc.participants.all():
                     if usr != request.user:
                         removed_users.append(usr.id)
-                        print(usr)
                         
         users = User.objects.filter(~Q(id=request.user.id)).filter(~Q(id__in=removed_users))
                 
@@ -72,7 +70,6 @@ class ChatAdmin(admin.ModelAdmin):
                 chat.title = "%s"%user
                 chat.save()
                 chat.participants.add(user, request.user)
-                print(chat.participants)
                 return redirect('admin:chatting', chat.reference_code)
                     
         context = dict(
@@ -93,8 +90,6 @@ class ChatAdmin(admin.ModelAdmin):
         template_name = "admin/mosaic_app/chat/chatting.html"
         chats = Chat.objects.filter(participants__id=request.user.id)
         
-        for c in chats:
-            print(c.participants.all())
         chat = get_object_or_404(Chat, reference_code=reference_code)
         
         if request.method == "POST":
