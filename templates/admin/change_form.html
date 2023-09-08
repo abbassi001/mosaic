@@ -6,8 +6,19 @@
 {{ media }}
 {% endblock %}
 
-{% block extrastyle %}{{ block.super }}
+{% block extrastyle %}
+{{ block.super }}
 <link rel="stylesheet" href="{% static "admin/css/forms.css" %}">
+
+<style>
+  /* Add some basic styling to the editor */
+  #auks-editor-container {
+      border: 1px solid #ccc;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+  }
+</style>
+
 {% endblock %}
 
 {% block coltype %}colM{% endblock %}
@@ -87,6 +98,23 @@
 
 <script>
   $(document).ready(function(){
+    // TODO: Texteditor codes
+    $("#id_client_information").addClass("auks-editor");
+    inputDOM = $(".auks-editor"); // textarea
+    inputDOM.before("<span id='auks-editor-container' class='vLargeTextField custom-form-control col-md-10 col-sm-12' contenteditable='true'></span>");
+    inputDOM.css("display", "none");
+
+    function syncData() {
+        var content = $("#auks-editor-container").html();
+        $(".auks-editor").val(content);
+    }
+    // Load initial content on page load
+    syncData();
+    $("#auks-editor-container").on("input", function() {
+        syncData();
+    });
+
+
     // $(".form-row").find("div").addClass("mb-2 ")
     // $(".form-row").find("label").addClass("col-md-2 col-sm-12");
     // $(".form-row").find("input:not(:checkbox), select").css("width", "calc("+$($(this).width())+")").addClass("custom-form-control col-md-10 col-sm-12");

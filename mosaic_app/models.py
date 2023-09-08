@@ -153,7 +153,10 @@ class Staff (models.Model):
 # Create your models here.
 class Invoice(models.Model):
    
-    
+    statuses = [
+        ['unpaid', 'Unpaid'],
+        ['paid', 'Paid'],
+    ]
     COMMERCIAL_INVOICE = 'commercial_invoice'
     OTHER_INVOICE = 'other_invoice'
     
@@ -163,19 +166,20 @@ class Invoice(models.Model):
     ]
 
     invoice_type = models.CharField(max_length=50,choices=INVOICE_TYPE_CHOICES,default=COMMERCIAL_INVOICE,)
-    
-    # invoice_type = models.CharField(max_length=100,choices=INVOICE_TYPE_CHOICES,default='regular')
-    invoice_id = models.CharField(max_length=50, unique=True)
-    client_information = models.TextField()
-    invoice_object = models.TextField(help_text="Reason for the invoice")
-    invoice_location = models.CharField(max_length=255)
+    invoice_number = models.CharField(_("Invoice number"), max_length=50, unique=True, null=True)
+    invoice_date = models.DateField(_("Invoice Date"), auto_now=False, auto_now_add=False, null=True)
+    client_information = models.TextField(_("Client Information"))
+    invoice_object = models.TextField(_("Reason"), help_text="Reason for the invoice")
+    invoice_location = models.CharField(_("Invoice Location"), max_length=255)
+    bank_account = models.CharField(_("Bank Account"), max_length=50, null=True, blank=True)
+    status = models.CharField(_("Status"), choices=statuses, default="unpaid", max_length=50)
     
     def __str__(self):
-        return self.invoice_id
+        return self.invoice_number
 
 class InvoiceItem(models.Model):
     
-    invoice = models.ForeignKey(Invoice,related_name='items',on_delete=models.CASCADE)
+    invoice = models.ForeignKey(Invoice, related_name='items',on_delete=models.CASCADE)
     designations = models.CharField(max_length=255)
     quantity_or_days = models.IntegerField()
     unit_price = models.DecimalField(max_digits=10, decimal_places=2)

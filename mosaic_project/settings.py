@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     
     'mosaic_app',
+    'number2words',
 ]
 
 MIDDLEWARE = [

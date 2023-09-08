@@ -129,7 +129,7 @@ class InvoiceItemInline(admin.TabularInline):
     
 @admin.register(Invoice) 
 class InvoiceAdmin(admin.ModelAdmin):
-    list_display = ('invoice_id', 'invoice_type', 'invoice_location', 'action')
+    list_display = ('invoice_number', 'invoice_type', 'invoice_location', 'status', 'action')
     # list_filter = ('invoice_type', )
         
     def action(self, obj):
@@ -150,6 +150,12 @@ class InvoiceAdmin(admin.ModelAdmin):
         items = InvoiceItem.objects.filter(invoice=invoice)
         invoiceItemFactory = InvoiceItemFormset(request.POST or None, queryset=items)
         
+        if request.GET.get("mode") == "print":
+            context = {
+                "invoice": invoice,
+            }
+            return render(request, "admin/mosaic_app/invoice/print.html", context=context)
+        
         if request.method == 'POST':
             if invoiceItemFactory.is_valid():
                 instances = invoiceItemFactory.save(commit=False)
@@ -164,6 +170,7 @@ class InvoiceAdmin(admin.ModelAdmin):
             add = self.has_add_permission(request),
             change = self.has_change_permission(request),
             app_label = "mosaic_app",
+            invoice = invoice,
             invoiceItemFactory = invoiceItemFactory,
             has_add_permission = self.has_add_permission(request),
             app_list = self.admin_site.get_app_list(request)
