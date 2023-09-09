@@ -1,4 +1,5 @@
 from django import template
+from mosaic_app.models import Invoice
 
 register = template.Library()
 
@@ -14,3 +15,13 @@ def get_chat_name(chat, request):
             if usr != request.user:
                 name = f'{name.join(f"{usr}")}, '
     return name
+
+@register.simple_tag
+def invoice_numbers():
+    invoices = Invoice.objects.all()
+    
+    return {
+        "paid":invoices.filter(status="paid").count(),
+        "unpaid":invoices.filter(status="unpaid").count(),
+        "all":invoices.count(),
+        }

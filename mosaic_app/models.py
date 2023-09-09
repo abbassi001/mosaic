@@ -174,7 +174,7 @@ class Invoice(models.Model):
     status = models.CharField(_("Status"), choices=statuses, default="unpaid", max_length=50)
     
     def __str__(self):
-        return self.invoice_number
+        return "%s"%self.invoice_number
     
     def total_amount(self):
         total_monthly_price = self.items.aggregate(total=Sum('monthly_price'))

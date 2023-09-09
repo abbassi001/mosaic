@@ -125,7 +125,7 @@ class InvoiceItemInline(admin.TabularInline):
 @admin.register(Invoice) 
 class InvoiceAdmin(admin.ModelAdmin):
     list_display = ('invoice_number', 'invoice_type', 'invoice_location', 'status', 'action')
-    # list_filter = ('invoice_type', )
+    list_filter = ('status', )
         
     def action(self, obj):
         link = "<a class='btn btn-info' href='%s/details'>Details</a>"%obj.id
