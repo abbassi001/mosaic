@@ -53,7 +53,7 @@
             }
         }
         .overlay {
-            /*background-color: rgb(233, 227, 227);*/
+            background-color: rgb(233, 227, 227);
             position: fixed;
             top: 0;
             left: 0;
@@ -158,11 +158,11 @@
                 
                                         <tr>
                                             <td style="padding: 2px;" colspan="4"><b><strong>{% trans 'TOTAL' %}</strong></b></td>
-                                            <td style="padding: 2px;" colspan="1"><strong><b><span class="total"></span></b></strong></td>
+                                            <td style="padding: 2px;" colspan="1"><strong><b><span class="total">{{ invoice.total_amount }}</span></b></strong></td>
                                         </tr>
                                         <tr>
                                             <td colspan="5">
-                                                Arrested this invoice at the sum of: {% number_to_words 123 as words %}{{ words|title }}
+                                                Arrested this invoice at the sum of: {% number_to_words invoice.total_amount as words %}{{ words|title }}
                                                 <br><br><br><br>
                                             </td>
                                         </tr>

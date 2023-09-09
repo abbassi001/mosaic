@@ -2,9 +2,8 @@ import random, string
 from typing import Iterable, Optional
 from django.db import models
 from django.conf import settings
+from django.db.models import Sum
 from django.utils.translation import gettext_lazy as _
-
-
 
 class Vehicle(models.Model):
     """
@@ -176,6 +175,10 @@ class Invoice(models.Model):
     
     def __str__(self):
         return self.invoice_number
+    
+    def total_amount(self):
+        total_monthly_price = self.items.aggregate(total=Sum('monthly_price'))
+        return total_monthly_price['total']
 
 class InvoiceItem(models.Model):
     
