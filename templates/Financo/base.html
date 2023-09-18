@@ -1,4 +1,8 @@
-{% load static %}
+{% load static i18n %}
+
+{% get_current_language as CURRENT_LANGUAGE %}
+{% get_available_languages as AVAILABLE_LANGUAGES %}
+{% get_language_info_list for AVAILABLE_LANGUAGES as languages %}
 
 <!doctype html>
 <html class="no-js" lang="en">
@@ -6,7 +10,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Home One || Financo</title>
+    <title>{{ title  }}|| Mosaic</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -35,11 +39,47 @@
 
     <!-- Header Area Start -->
     <header class="header-area">
-        <div class="header-top blue-bg fix d-lg-block d-md-block d-none">
+        <div class="header-top blue-bg fix d-lg-block d-md-block">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-4 col-md-3">
-                        <span>Welcome to MOSAIC INTERNATIONAL</span>
+                    <div class="col-lg-4 col-md-3 col-sm-12">
+                        <div class="row">
+                            <div class="col-11">
+                                {% trans 'Welcome to MOSAIC INTERNATIONAL' %} &nbsp;&nbsp;&nbsp;&nbsp;
+                            </div>
+                            <div class="col-1">
+                                <ul class="">
+                                    <li>
+                                        <a class="dropdown-toggle text-light"
+                                            href="#"
+                                            role="button"
+                                            id="dropdownMenuLink1"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false">
+                                           
+                                            {{CURRENT_LANGUAGE|upper}}
+                                            {% if CURRENT_LANGUAGE == "ar" %}
+                                                🇹🇩
+                                            {% elif CURRENT_LANGUAGE == "en" %}
+                                                🇬🇧
+                                            {% elif CURRENT_LANGUAGE == "fr" %}
+                                                🇫🇷
+                                            {% endif %}
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink1">
+                                            
+                                            {% for language in languages %}
+                                                <li>
+                                                    <a href="{% url 'change-language' language.code %}?next={{request.path}}">{% trans language.name %}({{ language.code|upper }})</a>
+                                                </li>
+                                            {% endfor %}
+                                                
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
                     </div>
                     <div class="col-lg-4 col-md-6">
                         <div class="header-icons">
@@ -49,14 +89,14 @@
                             <a href="#"><i class="fa fa-linkedin"></i></a>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-3">
+                    <!-- <div class="col-lg-4 col-md-3">
                         <div class="search-container">
                             <form action="#" method="post">
                                 <input placeholder="" type="text">
                                 <button><i class="fa fa-search"></i></button>
                             </form>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -75,20 +115,17 @@
                             <img src="{% static 'Financo/img/icons/phone.png' %}" alt=""> <br>
                             <div class="header-info-text">
                                 <h4><a href="telto:+235 62 68 68 12">+235 62 68 68 12</a></h4>
-                                <span>We are open 8 am - 5pm</span>
+                                <span>{% trans 'We are open 8 am - 5pm' %}</span>
                             </div>
                         </div>
                         <div class="header-info">
                             <img src="{% static 'Financo/img/icons/message.png' %}" alt="">
                             <div class="header-info-text">
                                 <h4><a href="mailto:Contact@mozaikinternational.com">Contact@mozaikinternational.td</a></h4>
-                                <span>You can mail us</span>
+                                <span>{% trans 'You can mail us' %}</span>
                             </div>
                         </div>
                     </div>
-                    {% comment %} <div class="quote-btn">
-                        <button>Get a Quote</button>
-                    </div> {% endcomment %}
                 </div>
             </div>
         </div>
@@ -101,14 +138,14 @@
                             <nav>
                                 <ul>
                                     <li>
-                                        <a href="/">HOME</a>
+                                        <a href="/">{% trans 'HOME' %}</a>
                                     </li>
                                     <li>
-                                        <a href="{% url 'about-us' %}">ABOUT US</a>
+                                        <a href="{% url 'about-us' %}">{% trans 'ABOUT US' %}</a>
                                     </li>
-                                    <li><a href="services">SERVICES</a>
+                                    <li><a href="services">{% trans 'SERVICES' %}</a>
                                     </li>
-                                    <li><a href="{% url 'admin:login' %}">LOGIN</a></li>
+                                    <li><a href="{% url 'admin:login' %}">{% trans 'LOGIN' %}</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -126,15 +163,15 @@
                             <nav id="dropdown">
                                 <ul>
                                     <li>
-                                        <a href="index.html">HOME</a>
+                                        <a href="index.html">{% trans 'HOME' %}</a>
                                     </li>
                                     <li>
-                                        <a href="about.html">ABOUT US</a>
+                                        <a href="about.html">{% trans 'ABOUT US' %}</a>
                                     </li>
                                     <li>
-                                        <a href="services.html">SERVICES</a>
+                                        <a href="services.html">{% trans 'SERVICES' %}</a>
                                     </li>
-                                    <li><a href="contact.html">CONTACT</a></li>
+                                    <li><a href="contact.html">{% trans 'CONTACT' %}</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -160,7 +197,13 @@
                         <div class="footer-logo">
                             <a href="index.html"><img src="{% static 'images/logo.png' %}" alt="FINANCO"></a>
                         </div>
-                        <p  style="text-align: justify;">At MOSAIC INTERNATIONAL, we turn your logistical challenges into business advantages. With 25+ years of expertise and 24/7 support, we're more than a service provider—we're your strategic partner for success.</p>
+                        <p  style="text-align: justify;">
+                            
+                            {% blocktrans %}
+                                At MOSAIC INTERNATIONAL, we turn your logistical challenges into business advantages. With 25+ years of expertise and 24/7 support, we're more than a service provider—we're your strategic partner for success.
+                            {% endblocktrans %}
+                            
+                        </p>
                         
                         <!-- mailchimp-alerts Start -->
                         <div class="mailchimp-alerts text-centre fix text-small">
@@ -176,28 +219,34 @@
                 </div>
                 <div class="col-xl-3 col-lg-3 col-md-6 col-12 order-md-3 order-2">
                     <div class="single-footer-widget mt-sm-30">
-                        <h3>Real Estate Fest</h3>
+                        <h3>{% trans 'Real Estate Fest' %}</h3>
                         
                         <div class="footer-widget-content">
                             <h5></h5>
-                            <span>The goal is to highlight how MOSAIC's multifaceted services enhance real estate projects by boosting efficiency, reducing costs, and driving success</span>
+                            <span>
+                                
+                                {% blocktrans %}
+                                The goal is to highlight how MOSAIC's multifaceted services enhance real estate projects by boosting efficiency, reducing costs, and driving success
+                                {% endblocktrans %}
+                                
+                            </span>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-3 col-md-6 col-12 order-md-2 order-3">
                     <div class="single-footer-widget">
-                        <h3>QUICK LINK</h3>
+                        <h3>{% trans 'QUICK LINK' %}</h3>
                         <ul class="footer-list">
-                            <li><a href="#">About us</a></li>
-                            <li><a href="#">Services</a></li>
-                            <li><a href="#">Projects</a></li>
-                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">{% trans 'About us' %}</a></li>
+                            <li><a href="#">{% trans 'Services' %}</a></li>
+                            <li><a href="#">{% trans 'Projects' %}</a></li>
+                            <li><a href="#">{% trans 'Contact' %}</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-3 col-md-6 col-12 order-md-4 order-4">
                     <div class="single-footer-widget mt-sm-30">
-                        <h3>CONTACT US</h3>
+                        <h3>{% trans 'CONTACT US' %}</h3>
                         <div class="footer-contact-info">
                             <img src="{% static 'Financo/img/icons/f-map.png' %}" alt="">
                             <span class="block">Ndjamena,Chad<br>
@@ -205,12 +254,12 @@
                         </div>
                         <div class="footer-contact-info">
                             <img src="{% static 'Financo/img/icons/f-phone.png' %}" alt="">
-                            <span class="block">Telephone : +235 62 68 68 12<br></span>
+                            <span class="block">{% trans 'Telephone' %} : +235 62 68 68 12<br></span>
                         </div>
                         <div class="footer-contact-info">
                             <img src="{% static 'Financo/img/icons/f-globe.png' %}" alt="">
                             <span class="block"><a href="mailto:Contact@mozaikinternational.com"></a><b>Email:Contact@mozaikinternational.td<br>
-                                Web : www.mosaicinternatinal.com</span>
+                                {% trans 'Web' %} : www.mosaicinternatinal.com</span>
                         </div>
                     </div>
                 </div>
@@ -227,12 +276,16 @@
         </a>
 
         <div class="question-popoup">
-            <h6>Need Any Help?</h6>
+            <h6>{% trans 'Need Any Help' %}?</h6>
             <p>
+                
+                {% blocktrans %}
                 Mosaic International is here to help you. Feel free to use it as you wish. Is there anything else you'd like to know?
+                {% endblocktrans %}
+                
 
                 <div class="q-btn">
-                    <a href="https://api.whatsapp.com/send?phone=33663037034" class="default-button">whats App</a>
+                    <a href="https://api.whatsapp.com/send?phone=33663037034" class="default-button">whatsApp</a>
                 </div>
             </p>
             <div class="question-info">
@@ -250,9 +303,9 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="footer-text">
-                        <span class="block">Copyright&copy; <script>document.write(new Date().getFullYear() + ' ');</script>MOSAIC. All rights reserved.</span>
+                        <span class="block">{% trans 'Copyright' %}&copy; <script>document.write(new Date().getFullYear() + ' ');</script>MOSAIC. {% trans 'All rights reserved' %}.</span>
                         <p>
-                            <span>Developed by: <a href="mailto:abbassiadamou55@gmail.com">ABBAS ADAM ABBAS</a></span>
+                            <span>{% trans 'Developed by' %}: <a href="mailto:abbassiadamou55@gmail.com">ABBAS ADAM ABBAS</a></span>
                         </p>
                     </div>
                 </div>
@@ -262,20 +315,20 @@
     <!-- End of Footer area -->
 
     <!-- All js here -->
-    <script src={% static 'Financo/js/vendor/modernizr-3.6.0.min.js' %}></script>
-    <script src={% static 'Financo/js/vendor/jquery-3.6.0.min.js' %}></script>
-    <script src={% static 'Financo/js/vendor/jquery-migrate-3.3.2.min.js' %}></script>
-    <script src={% static 'Financo/js/popper.min.js' %}></script>
-    <script src={% static 'Financo/js/bootstrap.min.js' %}></script>
-    <script src={% static 'Financo/js/owl.carousel.min.js' %}></script>
-    <script src={% static 'Financo/js/ajax-mail.js' %}></script>
-    <script src={% static 'Financo/js/jquery.ajaxchimp.min.js' %}></script>
-    <script src={% static 'Financo/js/jquery.magnific-popup.js' %}></script>
-    <script src={% static 'Financo/js/counterup.js' %}></script>
-    <script src={% static 'Financo/js/plugins.js' %}></script>
-    <script src={% static 'Financo/js/canvasjs.min.js' %}></script>
-    <script src={% static 'Financo/js/canvas-active.js' %}></script>
-    <script src={% static 'Financo/js/main.js' %}></script>
+    <script src="{% static 'Financo/js/vendor/modernizr-3.6.0.min.js' %}"></script>
+    <script src="{% static 'Financo/js/vendor/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'Financo/js/vendor/jquery-migrate-3.3.2.min.js' %}"></script>
+    <script src="{% static 'Financo/js/popper.min.js' %}"></script>
+    <script src="{% static 'Financo/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'Financo/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'Financo/js/ajax-mail.js' %}"></script>
+    <script src="{% static 'Financo/js/jquery.ajaxchimp.min.js' %}"></script>
+    <script src="{% static 'Financo/js/jquery.magnific-popup.js' %}"></script>
+    <script src="{% static 'Financo/js/counterup.js' %}"></script>
+    <script src="{% static 'Financo/js/plugins.js' %}"></script>
+    <script src="{% static 'Financo/js/canvasjs.min.js' %}"></script>
+    <script src="{% static 'Financo/js/canvas-active.js' %}"></script>
+    <script src="{% static 'Financo/js/main.js' %}"></script>
 </body>
 
 

@@ -1,6 +1,6 @@
 {% extends 'Financo/base.html' %}
 
-{% load static %}
+{% load static i18n %}
 
 {% block content %}
 
@@ -14,12 +14,17 @@
                         <div class="col-lg-7">
                             <div class="text-content-wrapper">
                                 <div class="text-content text-center">
-                                    <h3 class="title1 pt-65">WE PROVIDE BEST SOLUTIONS FOR </h3>
-                                    <h1 class="text-purple">TRANSIT SERVICES</h1>
-                                    <p style="text-align: justify;">With over a quarter-century of hands-on experience in logistics,
-                                         transport, transit, and supply chain management, MOSAIC INTERNATIONAL
-                                          is more than just a service provider; we are a trusted partner in your business success.
-                                        </p>
+                                    <h3 class="title1 pt-65">{% trans 'WE PROVIDE BEST SOLUTIONS FOR' %} </h3>
+                                    <h1 class="text-purple">{% trans 'TRANSIT SERVICES' %}</h1>
+                                    <p style="text-align: justify;">
+                                        
+                                        {% blocktrans %}
+                                            With over a quarter-century of hands-on experience in logistics,
+                                            transport, transit, and supply chain management, MOSAIC INTERNATIONAL
+                                            is more than just a service provider; we are a trusted partner in your business success.
+                                        {% endblocktrans %}
+                                        
+                                    </p>
                                     {% comment %} <div class="banner-readmore">
                                         <a class="button banner-btn" href="#">VIEW SERVICES</a>
                                     </div> {% endcomment %}
@@ -37,12 +42,17 @@
                         <div class="col-lg-7">
                             <div class="text-content-wrapper slide-two">
                                 <div class="text-content text-center">
-                                    <h3 class="title1 pt-65">GO With MOSAIC and Increase Efficiency in Your</h3>
-                                    <h1 class="text-purple">SUPPLY CHAIN </h1>
+                                    <h3 class="title1 pt-65">{% trans 'GO With MOSAIC and Increase Efficiency in Your' %}</h3>
+                                    <h1 class="text-purple">{% trans 'SUPPLY CHAIN' %} </h1>
 
-                                    <p style="text-align: justify;">With over a quarter-century of hands-on experience in logistics,
-                                        transport, transit, and supply chain management, MOSAIC INTERNATIONAL
-                                         is more than just a service provider; we are a trusted partner in your business success.
+                                    <p style="text-align: justify;">
+                                        
+                                        {% blocktrans %}
+                                            With over a quarter-century of hands-on experience in logistics,
+                                            transport, transit, and supply chain management, MOSAIC INTERNATIONAL
+                                            is more than just a service provider; we are a trusted partner in your business success.
+                                        {% endblocktrans %}
+                                        
                                        </p>
 
                                     {% comment %} <div class="banner-readmore">
@@ -82,11 +92,15 @@
         <div class="row">
             <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
                 <div class="section-title text-center mb-55">
-                    <h2>Our Services</h2>
+                    <h2>{% trans 'Our Services' %}</h2>
                     <p style="text-align: justify;">
+                        
+                        {% blocktrans %}
                         At MOSAIC INTERNATIONAL, we offer a range of services aimed at optimizing 
                         your supply chain and driving your business forward. Our services are designed to integrate seamlessly, 
                         providing a unified, holistic solution tailored to your specific needs. 
+                        {% endblocktrans %}
+                        
                     </p>
                 </div>
             </div>
@@ -98,8 +112,10 @@
                             <img src="{% static 'Financo/img/icons/plan.png' %}" alt="">
                         </span>
                     <div class="service-text">
-                        <h4>Logistics</h4>
-                        <p style="text-align: justify;">Our logistics services guarantee efficient and timely delivery, so your goods are where you need them, when you need them. </p>
+                        <h4>{% trans 'Logistics' %}</h4>
+                        <p style="text-align: justify;">
+                            {% trans 'Our logistics services guarantee efficient and timely delivery, so your goods are where you need them, when you need them. ' %}
+                        </p>
                     </div>
                 </div>
             </div>
@@ -109,8 +125,15 @@
                             <img src="{% static 'Financo/img/icons/cash.png' %}" alt="">
                         </span>
                     <div class="service-text">
-                        <h4>Transport</h4>
-                        <p style="text-align: justify;">Need something moved? Our transport services provide swift and secure relocation of your products, wherever they need to go</p>
+                        <h4>{% trans 'Transport' %}</h4>
+                        <p style="text-align: justify;">
+                            
+                            {% blocktrans %}
+                            Need something moved? Our transport services provide swift and secure relocation of your products, 
+                            wherever they need to go
+                            {% endblocktrans %}
+                            
+                        </p>
                     </div>
                 </div>
             </div>
@@ -120,8 +143,10 @@
                             <img src="{% static 'Financo/img/icons/brif.png' %}" alt="">
                         </span>
                     <div class="service-text">
-                        <h4>Transit</h4>
-                        <p style="text-align: justify;">Our transit solutions go beyond mere shipping—we offer end-to-end management of goods as they move through the supply chain </p>
+                        <h4>{% trans 'Transit' %}</h4>
+                        <p style="text-align: justify;">
+                            {% trans 'Our transit solutions go beyond mere shipping—we offer end-to-end management of goods as they move through the supply chain ' %}
+                        </p>
                     </div>
                 </div>
             </div>
@@ -131,8 +156,10 @@
                             <img src="{% static 'Financo/img/icons/hand.png' %}" alt="">
                         </span>
                     <div class="service-text">
-                        <h4>Parking of Automobiles</h4>
-                        <p style="text-align: justify;">Safe and secure parking solutions for automobiles, designed to free up valuable space and offer peace of mind. </p>
+                        <h4>{% trans 'Parking of Automobiles' %}</h4>
+                        <p style="text-align: justify;">
+                            {% trans 'Safe and secure parking solutions for automobiles, designed to free up valuable space and offer peace of mind. ' %}
+                        </p>
                     </div>
                 </div>
             </div>
@@ -142,8 +169,10 @@
                             <img src="{% static 'Financo/img/icons/commo.png' %}" alt="">
                         </span>
                     <div class="service-text">
-                        <h4>Accounting</h4>
-                        <p style="text-align: justify;">Our accounting services are tailored to give you a precise understanding of your financial situation, empowering your business decisions. </p>
+                        <h4>{% trans 'Accounting' %}</h4>
+                        <p style="text-align: justify;">
+                            {% trans 'Our accounting services are tailored to give you a precise understanding of your financial situation, empowering your business decisions. ' %}
+                        </p>
                     </div>
                 </div>
             </div>
@@ -153,10 +182,9 @@
                             <img src="{% static 'Financo/img/icons/reti.png' %}" alt="">
                         </span>
                      <div class="service-text">
-                        <h4>Supply Chain</h4>
+                        <h4>{% trans 'Supply Chain' %}</h4>
                         <p style="text-align: justify;">
-                            Our Supply Chain Management service is a comprehensive solution designed to optimize the flow of goods, information, and finances as they move from supplier to manufacturer to wholesaler to retailer and finally to the consumer.
-
+                            {% trans 'Our Supply Chain Management service is a comprehensive solution designed to optimize the flow of goods, information, and finances as they move from supplier to manufacturer to wholesaler to retailer and finally to the consumer.' %}
                         </p>
                     </div>
                 </div>
@@ -171,8 +199,10 @@
         <div class="row">
             <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
                 <div class="advertise-text text-white text-center">
-                    <h2>We Empower Your Supply Chain to Fuel Your Business Success</h2>
-                    <p style="text-align: justify;">Leverage Our 15+ Years of Expertise in Finance and Business Management to Propel Your Business to New Heights—Your Success is Our Commitment</p>
+                    <h2>{% trans 'We Empower Your Supply Chain to Fuel Your Business Success' %}</h2>
+                    <p style="text-align: justify;">
+                        {% trans 'Leverage Our 15+ Years of Expertise in Finance and Business Management to Propel Your Business to New Heights—Your Success is Our Commitment' %}
+                    </p>
                     
                 </div>
             </div>
@@ -188,8 +218,10 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="sub_title">
-                    <h3>Reqeust a Call Back</h3>
-                    <p style="text-align: justify;"> Don't have time to browse? Let us call you! Whether you have specific questions or just want to learn more about how MOSAIC INTERNATIONAL can benefit your business, we're here to help.</p>
+                    <h3>{% trans 'Reqeust a Call Back' %}</h3>
+                    <p style="text-align: justify;"> 
+                        {% trans "Don't have time to browse? Let us call you! Whether you have specific questions or just want to learn more about how MOSAIC INTERNATIONAL can benefit your business, we're here to help." %}
+                    </p>
 
                 </div>
                 <form id="contact-form" action="https://htmldemo.net/financo/financo/call-back-mail.php" method="post">
@@ -219,7 +251,7 @@
                         <div class="col-lg-12">
                             <div class="form-box">
                                 <textarea name="message" placeholder="Message"></textarea>
-                                <button type="submit" class="default-button submit-btn">Submit Now</button>
+                                <button type="submit" class="default-button submit-btn">{% trans "Submit Now" %}</button>
                             </div>
                             <p class="form-messege"></p>
                         </div>
@@ -229,21 +261,23 @@
             <div class="col-lg-6">
                 <div class="default-panel">
                     <div class="sub_title">
-                        <h3>Frequently Ask Qustion</h3>
-                        <p style="text-align: justify;">Certainly, a Frequently Asked Questions (FAQ) section can be a great way to address common inquiries in a straightforward manner. Here's how you might structure an FAQ for MOSAIC INTERNATIONAL:</p>
+                        <h3>{% trans "Frequently Ask Qustion" %}</h3>
+                        <p style="text-align: justify;">{% trans "Certainly, a Frequently Asked Questions (FAQ) section can be a great way to address common inquiries in a straightforward manner. Here's how you might structure an FAQ for MOSAIC INTERNATIONAL:" %}</p>
                     </div>
                     <div class="accordion" id="accordionExample">
                         <div class="card">
                             <div class="card-header" id="headingOne">
                                 <h4 class="card-title">
                                     <a role="button" data-bs-toggle="collapse" aria-expanded="true" href="#one" aria-controls="one">
-                                        <span></span> What services does MOSAIC INTERNATIONAL provide ?
+                                        <span></span> {% trans "What services does MOSAIC INTERNATIONAL provide" %} ?
                                     </a>
                                 </h4>
                             </div>
                             <div id="one" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                 <div class="card-body">
-                                    <p style="text-align: justify;" >We offer a comprehensive suite of services that includes logistics, transport, transit, parking of automobiles, and accounting. Our aim is to be your one-stop solution for all your business needs</p>
+                                    <p style="text-align: justify;" >
+                                        {% trans "We offer a comprehensive suite of services that includes logistics, transport, transit, parking of automobiles, and accounting. Our aim is to be your one-stop solution for all your business needs" %}
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -251,13 +285,15 @@
                             <div class="card-header" role="tab" id="headingTwo">
                                 <h4 class="card-title">
                                     <a class="collapsed" data-bs-toggle="collapse" aria-expanded="false" href="#two" aria-controls="two">
-                                        <span></span> Why Choose MOSAIC INTERNATIONAL for Supply Chain Management ?
+                                        <span></span> {% trans 'Why Choose MOSAIC INTERNATIONAL for Supply Chain Management' %} ?
                                     </a>
                                 </h4>
                             </div>
                             <div id="two" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                                 <div class="card-body">
-                                    <p style="text-align: justify;">Harness the power of an optimized supply chain with MOSAIC INTERNATIONAL. With over 15 years of industry experience, we bring a wealth of knowledge, skills, and innovative solutions to the intricate puzzle of supply chain management. Our service goes beyond logistics to include inventory planning, order fulfillment, demand forecasting, and supplier collaboration. Our aim is not just to manage your supply chain but to make it a strategic asset for your business. </p>
+                                    <p style="text-align: justify;">
+                                        {% trans 'Harness the power of an optimized supply chain with MOSAIC INTERNATIONAL. With over 15 years of industry experience, we bring a wealth of knowledge, skills, and innovative solutions to the intricate puzzle of supply chain management. Our service goes beyond logistics to include inventory planning, order fulfillment, demand forecasting, and supplier collaboration. Our aim is not just to manage your supply chain but to make it a strategic asset for your business. ' %}
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -265,13 +301,15 @@
                             <div class="card-header" role="tab" id="headingThree">
                                 <h4 class="card-title">
                                     <a class="collapsed" data-bs-toggle="collapse" aria-expanded="false" href="#three" aria-controls="three">
-                                        <span></span> How does real-time tracking work?
+                                        <span></span> {% trans 'How does real-time tracking work' %}?
                                     </a>
                                 </h4>
                             </div>
                             <div id="three" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                                 <div class="card-body">
-                                    <p style="text-align: justify;">We employ cutting-edge technology to provide you with real-time updates on the location and status of your goods as they move through the supply chain. This enables better decision-making and quicker response times for any unforeseen issues </p>
+                                    <p style="text-align: justify;">
+                                        {% trans 'We employ cutting-edge technology to provide you with real-time updates on the location and status of your goods as they move through the supply chain. This enables better decision-making and quicker response times for any unforeseen issues ' %}
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -279,14 +317,14 @@
                             <div class="card-header" role="tab" id="headingFour">
                                 <h4 class="card-title">
                                     <a class="collapsed" data-bs-toggle="collapse" aria-expanded="false" href="#four" aria-controls="four">
-                                        <span></span>How does Supply Chain Management integrate with financial planning?
+                                        <span></span>{% trans "How does Supply Chain Management integrate with financial planning" %}?
                                     </a>
                                 </h4>
                             </div>
                             <div id="four" class="collapse" role="tabpanel" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
                                 <div class="card-body">
                                     <p style="text-align: justify;" >
-                                        Our Supply Chain Management services include financial analysis and planning aspects, which help integrate your supply chain costs and strategies into your overall financial goals. This holistic approach ensures not only operational efficiency but also financial optimization.
+                                        {% trans "Our Supply Chain Management services include financial analysis and planning aspects, which help integrate your supply chain costs and strategies into your overall financial goals. This holistic approach ensures not only operational efficiency but also financial optimization." %}
                                     </p>
                                 </div>
                             </div>
@@ -295,13 +333,15 @@
                             <div class="card-header" role="tab" id="headingFive">
                                 <h4 class="card-title">
                                     <a class="collapsed" data-bs-toggle="collapse" aria-expanded="false" href="#five" aria-controls="five">
-                                        <span></span> Do you offer emergency support for supply chain disruptions?
+                                        <span></span> {% trans "Do you offer emergency support for supply chain disruptions" %}?
                                     </a>
                                 </h4>
                             </div>
                             <div id="five" class="collapse" role="tabpanel" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
                                 <div class="card-body">
-                                    <p style="text-align: justify;" >Yes, our 24/7 customer support extends to our Supply Chain Management services. We're always available to resolve urgent issues that could disrupt your supply chain. </p>
+                                    <p style="text-align: justify;" >
+                                        {% trans "Yes, our 24/7 customer support extends to our Supply Chain Management services. We're always available to resolve urgent issues that could disrupt your supply chain. " %}
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -323,7 +363,7 @@
                         <img src="{% static 'Financo/img/icons/check.png' %}" alt="" class="mr-15">
                         <h2><span class="counter">350</span></h2>
                     </div>
-                    <h4>Case Complete</h4>
+                    <h4>{% trans 'Case Complete' %}</h4>
                 </div>
             </div>
             <div class="fun-custom-column">
@@ -332,7 +372,7 @@
                         <img src="{% static 'Financo/img/icons/face.png' %}" alt="" class="mr-15">
                         <h2><span class="counter">180</span></h2>
                     </div>
-                    <h4>Happy Clients</h4>
+                    <h4>{% trans 'Happy Clients' %}</h4>
                 </div>
             </div>
             <div class="fun-custom-column">
@@ -341,7 +381,7 @@
                         <img src="{% static 'Financo/img/icons/teams.png' %}" alt="" class="mr-15">
                         <h2><span class="counter">62</span></h2>
                     </div>
-                    <h4>Team Member</h4>
+                    <h4>{% trans 'Team Member' %}</h4>
                 </div>
             </div>
             <div class="fun-custom-column">
@@ -350,7 +390,7 @@
                         <img src="{% static 'Financo/img/icons/trophy.png' %}" alt="" class="mr-15">
                         <h2><span class="counter">45</span></h2>
                     </div>
-                    <h4>Awards Win</h4>
+                    <h4>{% trans 'Awards Win' %}</h4>
                 </div>
             </div>
         </div>
