@@ -21,327 +21,327 @@ msgstr ""
 
 #: mosaic_app/models.py:15
 msgid "Picture"
-msgstr ""
+msgstr "صورة"
 
 #: mosaic_app/models.py:16
 msgid "Brand"
-msgstr ""
+msgstr "العلامة التجارية"
 
 #: mosaic_app/models.py:17
-msgid "Car Model "
-msgstr ""
+msgid "Car Model"
+msgstr "طراز السيارة"
 
 #: mosaic_app/models.py:18
-msgid "Year "
-msgstr ""
+msgid "Year"
+msgstr "العام"
 
 #: mosaic_app/models.py:19
-msgid "MileAge"
-msgstr ""
+msgid "Mileage"
+msgstr "المسافة المقطوعة"
 
 #: mosaic_app/models.py:20
 msgid "Color"
-msgstr ""
+msgstr "اللون"
 
 #: mosaic_app/models.py:21
 msgid "Plate"
-msgstr ""
+msgstr "اللوحة"
 
 #: mosaic_app/models.py:22
 msgid "Insurance Company"
-msgstr ""
+msgstr "شركة التأمين"
 
 #: mosaic_app/models.py:23
 msgid "Insurance Policy Number"
-msgstr ""
+msgstr "رقم وثيقة التأمين"
 
 #: mosaic_app/models.py:24
 msgid "Current Service Schedule"
-msgstr ""
+msgstr "جدول الصيانة الحالي"
 
 #: mosaic_app/models.py:38
 msgid "Vehicle Picture"
-msgstr ""
+msgstr "صورة المركبة"
 
 #: mosaic_app/models.py:40
 msgid "Vehicle"
-msgstr ""
+msgstr "المركبة"
 
 #: mosaic_app/models.py:41
 msgid "Maintenance Date"
-msgstr ""
+msgstr "تاريخ الصيانة"
 
 #: mosaic_app/models.py:42
-msgid "Service Type "
-msgstr ""
+msgid "Service Type"
+msgstr "نوع الخدمة"
 
 #: mosaic_app/models.py:43
-msgid "Maintenance Comments "
-msgstr ""
+msgid "Maintenance Comments"
+msgstr "تعليقات الصيانة"
 
 #: mosaic_app/models.py:53
 msgid "Label"
-msgstr ""
+msgstr "الملصق"
 
 #: mosaic_app/models.py:54
 msgid "Transaction Date"
-msgstr ""
+msgstr "تاريخ العملية"
 
 #: mosaic_app/models.py:55 mosaic_app/models.py:138
 msgid "Account Number"
-msgstr ""
+msgstr "رقم الحساب"
 
 #: mosaic_app/models.py:56
 msgid "Entries"
-msgstr ""
+msgstr "الإدخالات"
 
 #: mosaic_app/models.py:57
 msgid "Quantities"
-msgstr ""
+msgstr "الكميات"
 
 #: mosaic_app/models.py:58
 msgid "Total"
-msgstr ""
+msgstr "الإجمالي"
 
 #: mosaic_app/models.py:64
-msgid "Fund management "
-msgstr ""
+msgid "Fund Management"
+msgstr "إدارة الصندوق"
 
 #: mosaic_app/models.py:65
-msgid "Fund managements"
-msgstr ""
+msgid "Fund Managements"
+msgstr "إدارات الصندوق"
 
 #: mosaic_app/models.py:68 mosaic_app/models.py:120
 msgid "Title"
-msgstr ""
+msgstr "العنوان"
 
 #: mosaic_app/models.py:69
-msgid "Reference code"
-msgstr ""
+msgid "Reference Code"
+msgstr "الرمز المرجعي"
 
-#: mosaic_app/models.py:70
+#: mosaic_app.models.py:70
 msgid "Participants"
-msgstr ""
+msgstr "المشاركون"
 
 #: mosaic_app/models.py:73 mosaic_app/models.py:87
 msgid "Chat"
-msgstr ""
+msgstr "محادثة"
 
 #: mosaic_app/models.py:74
 msgid "Chats"
-msgstr ""
+msgstr "محادثات"
 
 #: mosaic_app/models.py:88
 msgid "Sender"
-msgstr ""
+msgstr "المرسل"
 
 #: mosaic_app/models.py:89
 msgid "Message"
-msgstr ""
+msgstr "الرسالة"
 
 #: mosaic_app/models.py:90
 msgid "Timestamp"
-msgstr ""
+msgstr "الوقت"
 
 #: mosaic_app/models.py:93
 msgid "Chat History"
-msgstr ""
+msgstr "سجل المحادثات"
 
 #: mosaic_app/models.py:94
 msgid "Chat Histories"
-msgstr ""
+msgstr "سجلات المحادثات"
 
 #: mosaic_app/models.py:102
 msgid "Male"
-msgstr ""
+msgstr "ذكر"
 
 #: mosaic_app/models.py:103
 msgid "Female"
-msgstr ""
+msgstr "أنثى"
 
 #: mosaic_app/models.py:107
 msgid "Single"
-msgstr ""
+msgstr "أعزب"
 
 #: mosaic_app/models.py:108
 msgid "Married"
-msgstr ""
+msgstr "متزوج"
 
 #: mosaic_app/models.py:109
 msgid "Widow(er)"
-msgstr ""
+msgstr "أرمل(ة)"
 
 #: mosaic_app/models.py:110
 msgid "Divorced"
-msgstr ""
+msgstr "مطلق"
 
 #: mosaic_app/models.py:114
 msgid "Mr"
-msgstr ""
+msgstr "السيد"
 
 #: mosaic_app/models.py:115
 msgid "Mrs"
-msgstr ""
+msgstr "السيدة"
 
 #: mosaic_app/models.py:116
 msgid "Miss"
-msgstr ""
+msgstr "آنسة"
 
 #: mosaic_app/models.py:118
 msgid "Passport Photo"
-msgstr ""
+msgstr "صورة جواز السفر"
 
 #: mosaic_app/models.py:121
 msgid "First Name"
-msgstr ""
+msgstr "الاسم الأول"
 
 #: mosaic_app/models.py:122
 msgid "Last Name"
-msgstr ""
+msgstr "الاسم الأخير"
 
 #: mosaic_app/models.py:123
 msgid "Beginning date of service"
-msgstr ""
+msgstr "تاريخ بدء الخدمة"
 
 #: mosaic_app/models.py:124
 msgid "Employee number"
-msgstr ""
+msgstr "رقم الموظف"
 
 #: mosaic_app/models.py:125
 msgid "Date of birth"
-msgstr ""
+msgstr "تاريخ الميلاد"
 
 #: mosaic_app/models.py:126
 msgid "Gender"
-msgstr ""
+msgstr "الجنس"
 
 #: mosaic_app/models.py:127
 msgid "Phone"
-msgstr ""
+msgstr "الهاتف"
 
 #: mosaic_app/models.py:128
 msgid "Email address"
-msgstr ""
+msgstr "عنوان البريد الإلكتروني"
 
 #: mosaic_app/models.py:129
 msgid "Emergency Phone"
-msgstr ""
+msgstr "هاتف الطوارئ"
 
 #: mosaic_app/models.py:131
-msgid "nationality"
-msgstr ""
+msgid "Nationality"
+msgstr "الجنسية"
 
 #: mosaic_app/models.py:133
 msgid "NID NUMBER"
-msgstr ""
+msgstr "رقم الهوية"
 
 #: mosaic_app/models.py:134
 msgid "Place of issue"
-msgstr ""
+msgstr "مكان الإصدار"
 
 #: mosaic_app/models.py:135
-msgid "Insurance Number "
-msgstr ""
+msgid "Insurance Number"
+msgstr "رقم التأمين"
 
 #: mosaic_app/models.py:137
 msgid "Bank"
-msgstr ""
+msgstr "البنك"
 
 #: mosaic_app/models.py:139
-msgid "Maritial status"
-msgstr ""
+msgid "Marital status"
+msgstr "الحالة الزوجية"
 
 #: mosaic_app/models.py:141
 msgid "Position"
-msgstr ""
+msgstr "المنصب"
 
 #: mosaic_app/models.py:145
-msgid "Staff "
-msgstr ""
+msgid "Staff"
+msgstr "الموظف"
 
 #: mosaic_app/models.py:146
 msgid "Staffs"
-msgstr ""
+msgstr "الموظفين"
 
 #: mosaic_app/models.py:163
 msgid "Commercial Invoice"
-msgstr ""
+msgstr "فاتورة تجارية"
 
 #: mosaic_app/models.py:164
 msgid "Other Invoice"
-msgstr ""
+msgstr "فاتورة أخرى"
 
 #: mosaic_app/models.py:168
 msgid "Invoice number"
-msgstr ""
+msgstr "رقم الفاتورة"
 
 #: mosaic_app/models.py:169
 msgid "Invoice Date"
-msgstr ""
+msgstr "تاريخ الفاتورة"
 
 #: mosaic_app/models.py:170
 msgid "Client Information"
-msgstr ""
+msgstr "معلومات العميل"
 
 #: mosaic_app/models.py:171
 msgid "Reason"
-msgstr ""
+msgstr "السبب"
 
 #: mosaic_app/models.py:172
 msgid "Invoice Location"
-msgstr ""
+msgstr "موقع الفاتورة"
 
 #: mosaic_app/models.py:173
 msgid "Bank Account"
-msgstr ""
+msgstr "حساب البنك"
 
 #: mosaic_app/models.py:174
 msgid "Status"
-msgstr ""
+msgstr "الحالة"
 
 #: mosaic_project/settings.py:118
 msgid "English"
-msgstr ""
+msgstr "الإنجليزية"
 
 #: mosaic_project/settings.py:119
 msgid "French"
-msgstr ""
+msgstr "الفرنسية"
 
 #: mosaic_project/settings.py:120
 msgid "Arabic"
-msgstr ""
+msgstr "العربية"
 
 #: templates/Financo/base.html:46
 msgid "Welcome to MOSAIC INTERNATIONAL"
-msgstr ""
+msgstr "مرحبًا بك في MOSAIC INTERNATIONAL"
 
 #: templates/Financo/base.html:82
 msgid "We are open 8 am - 5pm"
-msgstr ""
+msgstr "نحن مفتوحون من الساعة 8 صباحًا حتى الساعة 5 مساءً"
 
 #: templates/Financo/base.html:89
 msgid "You can mail us"
-msgstr ""
+msgstr "يمكنك مراسلتنا عبر البريد الإلكتروني"
 
 #: templates/Financo/base.html:137 templates/Financo/base.html:162
 msgid "HOME"
-msgstr ""
+msgstr "الرئيسية"
 
 #: templates/Financo/base.html:140 templates/Financo/base.html:165
 msgid "ABOUT US"
-msgstr ""
+msgstr "معلومات عنا"
 
 #: templates/Financo/base.html:142 templates/Financo/base.html:168
 msgid "SERVICES"
-msgstr ""
+msgstr "الخدمات"
 
 #: templates/Financo/base.html:144
 msgid "LOGIN"
-msgstr ""
+msgstr "تسجيل الدخول"
 
 #: templates/Financo/base.html:170
 msgid "CONTACT"
-msgstr ""
+msgstr "تواصل معنا"
 
 #: templates/Financo/base.html:198
 msgid ""
@@ -352,10 +352,13 @@ msgid ""
 "partner for success.\n"
 "                            "
 msgstr ""
+"\n"
+"                                في MOSAIC INTERNATIONAL، نحول تحديات اللوجستيات الخاصة بك إلى مزايا تجارية. بفضل خبرتنا التي تزيد عن 25 عامًا ودعمنا على مدار 24/7، نحن أكثر من مزودي الخدمات - نحن شريكك الاستراتيجي لتحقيق النجاح.\n"
+"                            "
 
 #: templates/Financo/base.html:218
 msgid "Real Estate Fest"
-msgstr ""
+msgstr "مهرجان العقارات"
 
 #: templates/Financo/base.html:224
 msgid ""
@@ -365,42 +368,45 @@ msgid ""
 "reducing costs, and driving success\n"
 "                                "
 msgstr ""
+"\n"
+"الهدف هو التسليط على كيفية تعزيز خدمات MOSAIC المتعددة الجوانب مشاريع العقارات من خلال زيادة الكفاءة وتقليل التكاليف وتحقيق النجاح"
+
 
 #: templates/Financo/base.html:234
 msgid "QUICK LINK"
-msgstr ""
+msgstr "روابط سريعة"
 
 #: templates/Financo/base.html:236
 msgid "About us"
-msgstr ""
+msgstr "معلومات عنا"
 
 #: templates/Financo/base.html:237
 msgid "Services"
-msgstr ""
+msgstr "الخدمات"
 
 #: templates/Financo/base.html:238
 msgid "Projects"
-msgstr ""
+msgstr "المشاريع"
 
 #: templates/Financo/base.html:239
 msgid "Contact"
-msgstr ""
+msgstr "تواصل معنا"
 
 #: templates/Financo/base.html:245
 msgid "CONTACT US"
-msgstr ""
+msgstr "اتصل بنا"
 
 #: templates/Financo/base.html:253
 msgid "Telephone"
-msgstr ""
+msgstr "الهاتف"
 
 #: templates/Financo/base.html:258
 msgid "Web"
-msgstr ""
+msgstr "الموقع الإلكتروني"
 
 #: templates/Financo/base.html:276
 msgid "Need Any Help"
-msgstr ""
+msgstr "هل تحتاج إلى مساعدة"
 
 #: templates/Financo/base.html:279
 msgid ""
@@ -409,26 +415,29 @@ msgid ""
 "it as you wish. Is there anything else you'd like to know?\n"
 "                "
 msgstr ""
+"\n"
+"                موزايك إنترناشونال هنا لمساعدتك. لا تتردد في استخدامها كما تشاء. هل هناك شيء آخر ترغب في معرفته؟\n"
+"                "
 
 #: templates/Financo/base.html:303
 msgid "Copyright"
-msgstr ""
+msgstr "حقوق النشر"
 
 #: templates/Financo/base.html:303
 msgid "All rights reserved"
-msgstr ""
+msgstr "جميع الحقوق محفوظة"
 
 #: templates/Financo/base.html:305
 msgid "Developed by"
-msgstr ""
+msgstr "تم تطويره بواسطة"
 
 #: templates/Financo/index.html:17
 msgid "WE PROVIDE BEST SOLUTIONS FOR"
-msgstr ""
+msgstr "نحن نقدم أفضل الحلول لـ"
 
 #: templates/Financo/index.html:18
 msgid "TRANSIT SERVICES"
-msgstr ""
+msgstr "خدمات النقل والعبور"
 
 #: templates/Financo/index.html:21 templates/Financo/index.html:51
 msgid ""
@@ -441,18 +450,25 @@ msgid ""
 "provider; we are a trusted partner in your business success.\n"
 "                                        "
 msgstr ""
+"\n"
+"                                            بخبرة تزيد عن ربع قرن في مجال "
+"اللوجستيات،\n"
+"                                            النقل، العبور، وإدارة سلسلة التوريد، "
+"موزايك إنترناشونال\n"
+"                                            أكثر من موفر خدمة عادي؛ نحن شريك موثوق به في نجاح أعمالك.\n"
+"                                        "
 
 #: templates/Financo/index.html:46
 msgid "GO With MOSAIC and Increase Efficiency in Your"
-msgstr ""
-
+msgstr "انضم إلى موزايك وزيِّن كفاءة أعمالك في مجال"
+  
 #: templates/Financo/index.html:47
 msgid "SUPPLY CHAIN"
-msgstr ""
+msgstr "سلسلة التوريد"
 
 #: templates/Financo/index.html:97
 msgid "Our Services"
-msgstr ""
+msgstr "خدماتنا"
 
 #: templates/Financo/index.html:100
 msgid ""
@@ -465,20 +481,26 @@ msgid ""
 "your specific needs. \n"
 "                        "
 msgstr ""
+"\n"
+"                        في موزايك إنترناشونال، نقدم مجموعة متنوعة من الخدمات التي تهدف إلى تحسين \n"
+"                        سلسلة إمدادك ودفع أعمالك إلى الأمام. خدماتنا مصممة للاندماج بسلاسة، \n"
+"                        وتقديم حلاً موحدًا وشاملاً مصممًا خصيصًا لاحتياجاتك الخاصة. \n"
+"                        "
 
 #: templates/Financo/index.html:117
 msgid "Logistics"
-msgstr ""
+msgstr "اللوجستيات"
 
 #: templates/Financo/index.html:119
 msgid ""
 "Our logistics services guarantee efficient and timely delivery, so your "
 "goods are where you need them, when you need them. "
 msgstr ""
+"خدمات اللوجستيات لدينا تضمن التسليم الفعّال وفي الوقت المحدد، حتى يكون البضائع في المكان الذي تحتاجه وعندما تحتاج إليها."
 
 #: templates/Financo/index.html:130
 msgid "Transport"
-msgstr ""
+msgstr "النقل"
 
 #: templates/Financo/index.html:133
 msgid ""
@@ -488,40 +510,47 @@ msgid ""
 "                            wherever they need to go\n"
 "                            "
 msgstr ""
+"\n"
+"                            هل تحتاج إلى نقل شيء ما؟ خدمات النقل لدينا توفر نقلًا سريعًا وآمنًا لمنتجاتك، \n"
+"                            أينما كان يجب أن تذهب\n"
+"                            "
 
 #: templates/Financo/index.html:148
 msgid "Transit"
-msgstr ""
+msgstr "العبور"
 
 #: templates/Financo/index.html:150
 msgid ""
 "Our transit solutions go beyond mere shipping—we offer end-to-end management "
 "of goods as they move through the supply chain "
 msgstr ""
+"تتجاوز حلول العبور لدينا مجرد الشحن نحن نقدم إدارة من البداية إلى النهاية للبضائع أثناء تحركها عبر سلسلة التوريد"
 
 #: templates/Financo/index.html:161
 msgid "Parking of Automobiles"
-msgstr ""
+msgstr "ركن السيارات"
 
 #: templates/Financo/index.html:163
 msgid ""
 "Safe and secure parking solutions for automobiles, designed to free up "
 "valuable space and offer peace of mind. "
 msgstr ""
+"حلول مواقف السيارات الآمنة والمأمونة للسيارات، مصممة لتوفير مساحة قيمة وتقديم راحة البال."
 
 #: templates/Financo/index.html:174
 msgid "Accounting"
-msgstr ""
+msgstr "المحاسبة"
 
 #: templates/Financo/index.html:176
 msgid ""
 "Our accounting services are tailored to give you a precise understanding of "
 "your financial situation, empowering your business decisions. "
 msgstr ""
+"تم تصميم خدمات المحاسبة لدينا لمنحك فهمًا دقيقًا لوضعك المالي، مما يمكنك من اتخاذ قرارات تجارية بناءة."
 
 #: templates/Financo/index.html:187
 msgid "Supply Chain"
-msgstr ""
+msgstr "سلسلة التوريد"
 
 #: templates/Financo/index.html:189
 msgid ""
@@ -530,20 +559,22 @@ msgid ""
 "supplier to manufacturer to wholesaler to retailer and finally to the "
 "consumer."
 msgstr ""
+"خدمة إدارة سلسلة التوريد لدينا هي حلاً شاملاً مصممًا لتحسين تدفق البضائع والمعلومات والأموال أثناء تحركها من المورد إلى الشركة المصنعة ثم إلى الجملة ثم إلى التجزئة وأخيرًا إلى المستهلك."
 
 #: templates/Financo/index.html:204
 msgid "We Empower Your Supply Chain to Fuel Your Business Success"
-msgstr ""
+msgstr "نحن نمنح سلسلة توريدك القوة لتحقيق نجاح أعمالك"
 
 #: templates/Financo/index.html:206
 msgid ""
 "Leverage Our 15+ Years of Expertise in Finance and Business Management to "
 "Propel Your Business to New Heights—Your Success is Our Commitment"
 msgstr ""
+"استفد من خبرتنا التي تزيد عن 15 عامًا في مجال الأعمال وإدارة الأعمال لدفع أعمالك إلى آفاق جديدة - نجاحك هو التزامنا."
 
 #: templates/Financo/index.html:223
 msgid "Reqeust a Call Back"
-msgstr ""
+msgstr "اطلب إعادة الاتصال"
 
 #: templates/Financo/index.html:225
 msgid ""
@@ -551,14 +582,15 @@ msgid ""
 "questions or just want to learn more about how MOSAIC INTERNATIONAL can "
 "benefit your business, we're here to help."
 msgstr ""
+"لا تملك الوقت لتصفح؟ دعونا نتصل بك! سواء كان لديك أسئلة محددة أو ترغب فقط في معرفة المزيد عن كيفية استفادتك من موزايك إنترناشونال في عملك، نحن هنا لمساعدتك."
 
 #: templates/Financo/index.html:256
 msgid "Submit Now"
-msgstr ""
+msgstr "قدّم الآن"
 
 #: templates/Financo/index.html:266
 msgid "Frequently Ask Qustion"
-msgstr ""
+msgstr "الأسئلة الشائعة"
 
 #: templates/Financo/index.html:267
 msgid ""
@@ -566,10 +598,11 @@ msgid ""
 "address common inquiries in a straightforward manner. Here's how you might "
 "structure an FAQ for MOSAIC INTERNATIONAL:"
 msgstr ""
+"بالتأكيد، قسم الأسئلة الشائعة (FAQ) يمكن أن يكون وسيلة رائعة للرد على الاستفسارات الشائعة بطريقة مباشرة. إليك كيف يمكنك تنظيم الأسئلة الشائعة لـ موزايك إنترناشونال:"
 
 #: templates/Financo/index.html:274
 msgid "What services does MOSAIC INTERNATIONAL provide"
-msgstr ""
+msgstr "ما هي الخدمات التي يقدمها موزايك إنترناشونال"
 
 #: templates/Financo/index.html:281
 msgid ""
@@ -577,10 +610,11 @@ msgid ""
 "transport, transit, parking of automobiles, and accounting. Our aim is to be "
 "your one-stop solution for all your business needs"
 msgstr ""
+"نحن نقدم مجموعة شاملة من الخدمات تتضمن اللوجستيات، النقل، العبور، ركن السيارات، والمحاسبة. هدفنا هو أن نكون حلاً شاملاً لجميع احتياجات عملك."
 
 #: templates/Financo/index.html:290
 msgid "Why Choose MOSAIC INTERNATIONAL for Supply Chain Management"
-msgstr ""
+msgstr "لماذا تختار موزايك إنترناشونال لإدارة سلسلة التوريد"
 
 #: templates/Financo/index.html:297
 msgid ""
@@ -592,10 +626,11 @@ msgid ""
 "is not just to manage your supply chain but to make it a strategic asset for "
 "your business. "
 msgstr ""
+"استفد من قوة سلسلة التوريد المُحسَّنة مع موزايك إنترناشونال. بخبرتنا التي تزيد عن 15 عامًا في صناعة الأعمال، نقدم ثروة من المعرفة والمهارات والحلول المبتكرة للبuzzle الدقيق لإدارة سلسلة التوريد. خدمتنا تتجاوز اللوجستيات لتشمل تخطيط المخزون، تنفيذ الطلبات، التنبؤ بالطلب، والتعاون مع الموردين. هدفنا ليس مجرد إدارة سلسلة التوريد الخاصة بك ولكن جعلها أصول استراتيجية لعملك."
 
 #: templates/Financo/index.html:306
 msgid "How does real-time tracking work"
-msgstr ""
+msgstr "كيف يعمل التتبع في الوقت الحقيقي"
 
 #: templates/Financo/index.html:313
 msgid ""
@@ -604,10 +639,11 @@ msgid ""
 "This enables better decision-making and quicker response times for any "
 "unforeseen issues "
 msgstr ""
+"نحن نستخدم تكنولوجيا حديثة لتوفير لك تحديثات في الوقت الحقيقي عن موقع وحالة بضائعك أثناء تحركها عبر سلسلة التوريد. وهذا يمكن من اتخاذ قرارات أفضل وزمن أسرع في التعامل مع أي قضايا غير متوقعة."
 
 #: templates/Financo/index.html:322
 msgid "How does Supply Chain Management integrate with financial planning"
-msgstr ""
+msgstr "كيف يتكامل إدارة سلسلة التوريد مع التخطيط المالي"
 
 #: templates/Financo/index.html:329
 msgid ""
@@ -616,10 +652,11 @@ msgid ""
 "your overall financial goals. This holistic approach ensures not only "
 "operational efficiency but also financial optimization."
 msgstr ""
+"تشمل خدمات إدارة سلسلة التوريد لدينا جوانب التحليل المالي والتخطيط المالي، والتي تساعد في دمج تكاليف سلسلة التوريد واستراتيجياتها في أهدافك المالية العامة. هذا النهج الشامل يضمن ليس فقط الكفاءة التشغيلية ولكن أيضًا الأمان المالي."
 
 #: templates/Financo/index.html:338
 msgid "Do you offer emergency support for supply chain disruptions"
-msgstr ""
+msgstr "هل تقدمون دعمًا طارئًا لاضطرابات سلسلة التوريد"
 
 #: templates/Financo/index.html:345
 msgid ""
@@ -627,30 +664,31 @@ msgid ""
 "services. We're always available to resolve urgent issues that could disrupt "
 "your supply chain. "
 msgstr ""
+"نعم، دعم العملاء على مدار الساعة طوال أيام الأسبوع يمتد إلى خدمات إدارة سلسلة التوريد لدينا. نحن دائمًا متاحون لحل المشكلات العاجلة التي قد تؤدي إلى اضطراب سلسلة التوريد الخاصة بك."
 
 #: templates/Financo/index.html:368
 msgid "Case Complete"
-msgstr ""
+msgstr "حالة مكتملة"
 
 #: templates/Financo/index.html:377
 msgid "Happy Clients"
-msgstr ""
+msgstr "عملاء سعداء"
 
 #: templates/Financo/index.html:386
 msgid "Team Member"
-msgstr ""
+msgstr "عضو في الفريق"
 
 #: templates/Financo/index.html:395
 msgid "Awards Win"
-msgstr ""
+msgstr "جوائز مكتسبة"
 
 #: templates/admin/404.html:4 templates/admin/404.html:8
 msgid "Page not found"
-msgstr ""
+msgstr "الصفحة غير موجودة"
 
 #: templates/admin/404.html:10
 msgid "We’re sorry, but the requested page could not be found."
-msgstr ""
+msgstr "نعتذر، ولكن الصفحة المطلوبة غير موجودة."
 
 #: templates/admin/500.html:6 templates/admin/base-org.html:76
 #: templates/admin/change_form.html:31 templates/admin/change_list.html:32
@@ -658,131 +696,132 @@ msgstr ""
 #: templates/admin/delete_selected_confirmation.html:14
 #: templates/admin/object_history.html:6
 msgid "Home"
-msgstr ""
+msgstr "الصفحة الرئيسية"
 
 #: templates/admin/500.html:7
 msgid "Server error"
-msgstr ""
+msgstr "خطأ في الخادم"
 
 #: templates/admin/500.html:11
 msgid "Server error (500)"
-msgstr ""
+msgstr "خطأ في الخادم (500)"
 
 #: templates/admin/500.html:14
 msgid "Server Error <em>(500)</em>"
-msgstr ""
+msgstr "خطأ في الخادم <em>(500)</em>"
 
 #: templates/admin/500.html:15
 msgid ""
 "There’s been an error. It’s been reported to the site administrators via "
 "email and should be fixed shortly. Thanks for your patience."
 msgstr ""
+"حدث خطأ. تم الإبلاغ عنه إلى مسؤولي الموقع عبر البريد الإلكتروني وسيتم إصلاحه قريبًا. شكرًا لصبرك."
 
 #: templates/admin/actions.html:8
 msgid "Run the selected action"
-msgstr ""
+msgstr "تشغيل الإجراء المحدد"
 
 #: templates/admin/actions.html:8
 msgid "Go"
-msgstr ""
+msgstr "انطلق"
 
 #: templates/admin/actions.html:16
 msgid "Click here to select the objects across all pages"
-msgstr ""
+msgstr "انقر هنا لتحديد الكائنات عبر جميع الصفحات"
 
 #: templates/admin/actions.html:16
 #, python-format
 msgid "Select all %(total_count)s %(module_name)s"
-msgstr ""
+msgstr "تحديد الكل %(total_count)s %(module_name)s"
 
 #: templates/admin/actions.html:18
 msgid "Clear selection"
-msgstr ""
+msgstr "مسح التحديد"
 
 #: templates/admin/base-org.html:28
 msgid "Skip to main content"
-msgstr ""
+msgstr "تخطي إلى المحتوى الرئيسي"
 
 #: templates/admin/base-org.html:43
 msgid "Welcome,"
-msgstr ""
+msgstr "مرحبًا،"
 
 #: templates/admin/base-org.html:48
 msgid "View site"
-msgstr ""
+msgstr "عرض الموقع"
 
 #: templates/admin/base-org.html:53
 msgid "Documentation"
-msgstr ""
+msgstr "التوثيق"
 
 #: templates/admin/base-org.html:57
 msgid "Change password"
-msgstr ""
+msgstr "تغيير كلمة المرور"
 
 #: templates/admin/base-org.html:61
 msgid "Log out"
-msgstr ""
+msgstr "تسجيل الخروج"
 
 #: templates/admin/base-org.html:73
 msgid "Breadcrumbs"
-msgstr ""
+msgstr "مسارات التصفح"
 
 #: templates/admin/change_form.html:34
 #: templates/admin/change_list_object_tools.html:8
 #, python-format
 msgid "Add %(name)s"
-msgstr ""
+msgstr "إضافة %(name)s"
 
 #: templates/admin/change_form.html:56 templates/admin/change_list.html:52
 #: templates/admin/login.html:23
 msgid "Please correct the error below."
 msgid_plural "Please correct the errors below."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "يرجى تصحيح الخطأ أدناه."
+msgstr[1] "يرجى تصحيح الأخطاء أدناه."
 
 #: templates/admin/change_form_object_tools.html:8
 #: templates/admin/edit_inline/stacked.html:18
 #: templates/admin/edit_inline/tabular.html:41
 msgid "View on site"
-msgstr ""
+msgstr "عرض على الموقع"
 
 #: templates/admin/change_list.html:77
 msgid "Filter"
-msgstr ""
+msgstr "تصفية"
 
 #: templates/admin/change_list.html:79
 msgid "Clear all filters"
-msgstr ""
+msgstr "مسح جميع التصفيات"
 
 #: templates/admin/change_list_results.html:24
 msgid "Remove from sorting"
-msgstr ""
+msgstr "إزالة من الترتيب"
 
 #: templates/admin/change_list_results.html:26
 #, python-format
 msgid "Sorting priority: %(priority_number)s"
-msgstr ""
+msgstr "أولوية الترتيب: %(priority_number)s"
 
 #: templates/admin/change_list_results.html:29
 msgid "Toggle sorting"
-msgstr ""
+msgstr "تبديل الترتيب"
 
 #: templates/admin/color_theme_toggle.html:3
 msgid "Toggle theme (current theme: auto)"
-msgstr ""
+msgstr "تبديل السمة (السمة الحالية: تلقائي)"
 
 #: templates/admin/color_theme_toggle.html:4
 msgid "Toggle theme (current theme: light)"
-msgstr ""
+msgstr "تبديل السمة (السمة الحالية: فاتحة)"
 
 #: templates/admin/color_theme_toggle.html:5
 msgid "Toggle theme (current theme: dark)"
-msgstr ""
+msgstr "تبديل السمة (السمة الحالية: داكنة)"
 
 #: templates/admin/delete_confirmation.html:18
 #: templates/admin/submit_line.html:14
 msgid "Delete"
-msgstr ""
+msgstr "حذف"
 
 #: templates/admin/delete_confirmation.html:25
 #, python-format
@@ -791,6 +830,7 @@ msgid ""
 "related objects, but your account doesn't have permission to delete the "
 "following types of objects:"
 msgstr ""
+"سيؤدي حذف %(object_name)s '%(escaped_object)s' إلى حذف الكائنات ذات الصلة، ولكن حسابك ليس لديه إذن لحذف أنواع الكائنات التالية:"
 
 #: templates/admin/delete_confirmation.html:30
 #, python-format
@@ -798,6 +838,7 @@ msgid ""
 "Deleting the %(object_name)s '%(escaped_object)s' would require deleting the "
 "following protected related objects:"
 msgstr ""
+"سيتطلب حذف %(object_name)s '%(escaped_object)s' حذف الكائنات ذات الصلة المحمية التالية:"
 
 #: templates/admin/delete_confirmation.html:35
 #, python-format
@@ -805,25 +846,26 @@ msgid ""
 "Are you sure you want to delete the %(object_name)s \"%(escaped_object)s\"? "
 "All of the following related items will be deleted:"
 msgstr ""
+"هل أنت متأكد أنك تريد حذف %(object_name)s \"%(escaped_object)s\"؟ ستتم حذف جميع العناصر ذات الصلة التالية:"
 
 #: templates/admin/delete_confirmation.html:37
 #: templates/admin/delete_selected_confirmation.html:31
 msgid "Objects"
-msgstr ""
+msgstr "الكائنات"
 
 #: templates/admin/delete_confirmation.html:44
 #: templates/admin/delete_selected_confirmation.html:42
 msgid "Yes, I’m sure"
-msgstr ""
+msgstr "نعم، أنا متأكد"
 
 #: templates/admin/delete_confirmation.html:45
 #: templates/admin/delete_selected_confirmation.html:43
 msgid "No, take me back"
-msgstr ""
+msgstr "لا، عدني للخلف"
 
 #: templates/admin/delete_selected_confirmation.html:17
 msgid "Delete multiple objects"
-msgstr ""
+msgstr "حذف عدة كائنات"
 
 #: templates/admin/delete_selected_confirmation.html:23
 #, python-format
@@ -832,6 +874,7 @@ msgid ""
 "objects, but your account doesn't have permission to delete the following "
 "types of objects:"
 msgstr ""
+"سيؤدي حذف الـ %(objects_name)s المحددة إلى حذف الكائنات ذات الصلة، ولكن حسابك ليس لديه إذن لحذف أنواع الكائنات التالية:"
 
 #: templates/admin/delete_selected_confirmation.html:26
 #, python-format
@@ -839,6 +882,7 @@ msgid ""
 "Deleting the selected %(objects_name)s would require deleting the following "
 "protected related objects:"
 msgstr ""
+"سيتطلب حذف الـ %(objects_name)s المحددة حذف الكائنات ذات الصلة المحمية التالية:"
 
 #: templates/admin/delete_selected_confirmation.html:29
 #, python-format
@@ -846,41 +890,43 @@ msgid ""
 "Are you sure you want to delete the selected %(objects_name)s? All of the "
 "following objects and their related items will be deleted:"
 msgstr ""
+"هل أنت متأكد أنك تريد حذف الـ %(objects_name)s المحددة؟ سيتم حذف جميع الكائنات التالية وعناصرها ذات الصلة:"
+
 
 #: templates/admin/edit_inline/stacked.html:16
 #: templates/admin/edit_inline/tabular.html:39
 msgid "Change"
-msgstr ""
+msgstr "تغيير"
 
 #: templates/admin/edit_inline/stacked.html:16
 #: templates/admin/edit_inline/tabular.html:39
 msgid "View"
-msgstr ""
+msgstr "عرض"
 
 #: templates/admin/edit_inline/tabular.html:25
 msgid "Delete?"
-msgstr ""
+msgstr "حذف؟"
 
 #: templates/admin/filter.html:4
 #, python-format
 msgid " By %(filter_title)s "
-msgstr ""
+msgstr " حسب %(filter_title)s "
 
 #: templates/admin/index.html:14
 msgid "Paid Invoices"
-msgstr ""
+msgstr "الفواتير المدفوعة"
 
 #: templates/admin/index.html:27
 msgid "Unpaid Invoices"
-msgstr ""
+msgstr "الفواتير غير المدفوعة"
 
 #: templates/admin/index.html:40
 msgid "Total Invoices"
-msgstr ""
+msgstr "مجموع الفواتير"
 
 #: templates/admin/login.html:23
 msgid "Please correct the errors below."
-msgstr ""
+msgstr "يرجى تصحيح الأخطاء أدناه."
 
 #: templates/admin/login.html:39
 #, python-format
@@ -888,54 +934,55 @@ msgid ""
 "You are authenticated as %(username)s, but are not authorized to access this "
 "page. Would you like to login to a different account?"
 msgstr ""
+"أنت مصادق عليه باسم %(username)s، لكن ليس لديك الإذن للوصول إلى هذه الصفحة. هل ترغب في تسجيل الدخول إلى حساب مختلف؟"
 
 #: templates/admin/login.html:59
 msgid "Forgotten your password or username?"
-msgstr ""
+msgstr "هل نسيت كلمة المرور أو اسم المستخدم؟"
 
 #: templates/admin/login.html:63
 msgid "Log in"
-msgstr ""
+msgstr "تسجيل الدخول"
 
 #: templates/admin/mosaic_app/invoice/details.html:50
 #: templates/admin/mosaic_app/invoice/print.html:105
 msgid "DATE"
-msgstr ""
+msgstr "التاريخ"
 
 #: templates/admin/mosaic_app/invoice/details.html:58
 #: templates/admin/mosaic_app/invoice/print.html:111
 msgid "SUPPLIER/CARRIER"
-msgstr ""
+msgstr "المورد/الناقل"
 
 #: templates/admin/mosaic_app/invoice/details.html:59
 #: templates/admin/mosaic_app/invoice/print.html:112
 msgid "CLIENT"
-msgstr ""
+msgstr "العميل"
 
 #: templates/admin/mosaic_app/invoice/details.html:83
 #: templates/admin/mosaic_app/invoice/print.html:143
 msgid "Designation"
-msgstr ""
+msgstr "التسمية"
 
 #: templates/admin/mosaic_app/invoice/details.html:84
 #: templates/admin/mosaic_app/invoice/print.html:144
 msgid "Qty/Days"
-msgstr ""
+msgstr "الكمية/الأيام"
 
 #: templates/admin/mosaic_app/invoice/details.html:85
 #: templates/admin/mosaic_app/invoice/print.html:145
 msgid "Price per Unit/Day"
-msgstr ""
+msgstr "السعر للوحدة/اليوم"
 
 #: templates/admin/mosaic_app/invoice/details.html:86
 #: templates/admin/mosaic_app/invoice/print.html:146
 msgid "Monthly Amount"
-msgstr ""
+msgstr "المبلغ الشهري"
 
 #: templates/admin/mosaic_app/invoice/details.html:113
 #: templates/admin/mosaic_app/invoice/print.html:160
 msgid "TOTAL"
-msgstr ""
+msgstr "المجموع"
 
 #: templates/admin/mosaic_app/invoice/details.html:131
 msgid ""
@@ -943,6 +990,9 @@ msgid ""
 "                                                Account N<sup>o</sup>: \n"
 "                                            "
 msgstr ""
+"\n"
+"                                                رقم الحساب: \n"
+"                                            "
 
 #: templates/admin/mosaic_app/invoice/print.html:173
 #, python-format
@@ -952,79 +1002,83 @@ msgid ""
 "sup>:  %(invoice.bank_account|default:'')s\n"
 "                                                    "
 msgstr ""
+"\n"
+"                                                        رقم الحساب:  %(invoice.bank_account|default:'')s\n"
+"                                                    "
 
 #: templates/admin/object_history.html:10
 msgid "History"
-msgstr ""
+msgstr "التاريخ"
 
 #: templates/admin/object_history.html:22
 msgid "Date/time"
-msgstr ""
+msgstr "التاريخ/الوقت"
 
 #: templates/admin/object_history.html:23
 msgid "User"
-msgstr ""
+msgstr "المستخدم"
 
 #: templates/admin/object_history.html:24
 msgid "Action"
-msgstr ""
+msgstr "الإجراء"
 
 #: templates/admin/object_history.html:49
 msgid "entry"
 msgid_plural "entries"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "إدخال"
+msgstr[1] "إدخالات"
 
 #: templates/admin/object_history.html:52
 msgid ""
 "This object doesn’t have a change history. It probably wasn’t added via this "
 "admin site."
-msgstr ""
+msgstr "هذا الكائن ليس لديه تاريخ تغيير. ربما لم يتم إضافته عبر موقع الإدارة هذا."
 
 #: templates/admin/pagination.html:10 templates/admin/search_form.html:9
 msgid "Show all"
-msgstr ""
+msgstr "عرض الكل"
 
 #: templates/admin/pagination.html:11 templates/admin/submit_line.html:4
 msgid "Save"
-msgstr ""
+msgstr "حفظ"
 
 #: templates/admin/popup_response.html:3
 msgid "Popup closing…"
-msgstr ""
+msgstr "جاري إغلاق النافذة المنبثقة..."
 
 #: templates/admin/search_form.html:7
 msgid "Search"
-msgstr ""
+msgstr "بحث"
 
 #: templates/admin/search_form.html:9
 #, python-format
 msgid "%(counter)s result"
 msgid_plural "%(counter)s results"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "نتيجة واحدة"
+msgstr[1] "نتائج %(counter)s"
 
 #: templates/admin/search_form.html:9
 #, python-format
 msgid "%(full_result_count)s total"
-msgstr ""
+msgstr "إجمالي %(full_result_count)s"
 
 #: templates/admin/submit_line.html:5
 msgid "Save as new"
-msgstr ""
+msgstr "حفظ كجديد"
 
 #: templates/admin/submit_line.html:6
 msgid "Save and add another"
-msgstr ""
+msgstr "حفظ وإضافة آخر"
 
 #: templates/admin/submit_line.html:7
 msgid "Save and continue editing"
-msgstr ""
+msgstr "حفظ ومتابعة التحرير"
 
 #: templates/admin/submit_line.html:7
 msgid "Save and view"
-msgstr ""
+msgstr "حفظ وعرض"
 
 #: templates/admin/submit_line.html:10
 msgid "Close"
-msgstr ""
+msgstr "إغلاق"
+
