@@ -1,7 +1,6 @@
 from django.forms import modelformset_factory
 from django import  forms
-from .models import InvoiceItem
-
+from .models import InvoiceItem, FundItem
 
 class InvoiceItemForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
@@ -15,4 +14,16 @@ class InvoiceItemForm(forms.ModelForm):
         exclude = ['id', 'invoice']
         
 InvoiceItemFormset = modelformset_factory(InvoiceItem, form=InvoiceItemForm)
+
+class FundItemForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(FundItemForm, self).__init__(*args, **kwargs)
+
+    class Meta:
+        """Meta definition for FundItemform."""
+
+        model = FundItem
+        exclude = ['id', 'fundmanagement']
+        
+FundItemFormset = modelformset_factory(FundItem, form=FundItemForm)
 

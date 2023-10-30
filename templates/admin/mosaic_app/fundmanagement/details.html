@@ -1,0 +1,178 @@
+{% extends 'admin/base.html' %}
+
+{% load static number2words i18n admin_urls admin_list humanize customtag %}
+
+
+{% block extrastyle %}
+    {{ block.super }}
+
+    <style>
+        .table-bordered td, .table-bordered th {
+            border: 1px solid #aaa !important;
+        }
+    </style>
+    
+{% endblock extrastyle %}
+    
+
+{% block content %}
+    <div class="col-lg-12">
+        <div class="row chat-window">
+  
+            <div class="col-lg-12 col-xl-12 chat-cont-left">
+                <div class="card mb-sm-3 mb-md-0 contacts_card flex-fill">
+                    
+                    <div class="card-body contacts_body">
+                        <img src="{% static '/images/header.png' %}" alt="header" class="w-100">
+                        
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            {{ fundItemFormset.management_form }}
+                            <table class="table table-bordered ">
+                                
+                                <tr>
+                                    <td colspan="3">
+                                        <div>MOSAIC INTERNATIONAL</div>
+                                        <div>BP: 851 N'DJAMENA TCHAD</div>
+                                        <div>TEL: 62 68 68 12</div>
+                                        <div>Email: contact@mozaikinternational.td</div>
+                                    </td>
+                                    <td colspan="2">
+                                        {{fundmanagement.client_information|safe}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>{% trans 'Date' %}</td>
+                                    <td>{% trans 'Designation' %}</td>
+                                    <td colspan="2">{% trans 'Amount' %}</td>
+                                    <td>{% trans 'observation' %}</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5">
+                                        {{ fundItemFormset.non_form_errors }}
+                                    </td>
+                                </tr>
+                                
+                                {% for form in fundItemFormset %}
+                                    {% if form.errors %}
+                                        <tr>
+                                            <td colspan="5">{{ form.errors }}</td>
+                                        </tr>
+                                    {% endif %}
+                                    
+                                    <tr class="form-tr">
+                                        <td class="d-none">{{ form.id }}</td>
+                                        <td> {{ form.transaction_date }} </td>
+                                        <td> {{ form.designation }} </td>
+                                        <td> {{ form.unit_price }} </td>
+                                        <td> {{ form.total }} </td>
+                                        <td> {{ form.observation }} </td>
+                                    </tr>
+
+                                {% endfor %}
+                                <tr class="new-row"></tr>
+
+                                <tr>
+                                    <td colspan="3"><b><strong>{% trans 'TOTAL' %}</strong></b></td>
+                                    <td><strong><b><span class="total"></span></b></strong></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5">
+                                        <span class="btn btn-outline-info btn-add-item mt-2"><i class="fa fa-plus"></i> <strong>Add item</strong></span>
+                                        <button type="submit" class="btn btn-primary mt-2"><i class="fa fa-save"></i> Save Now</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5">
+                                        <h3>
+                                            <strong>
+                                                {% blocktrans %}
+                                                    Account N<sup>o</sup>: 
+                                                {% endblocktrans %}
+                                                {{ fundmanagement.account_number }}
+                                            </strong>
+                                        </h3>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                            
+                        <img src="{% static '/images/footer.png' %}" alt="header" class="w-100">
+                    </div>
+                </div>
+                <a href="?mode=print" class="btn btn-primary text-light"><i class="fa fa-print"></i> PRINT</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
+
+
+{% block scripts %}
+    <script>
+        $("input[name$='-transaction_date']").attr("type", "date");
+        $(".btn-add-item").on("click", function(){
+            tr = $(".form-tr:last").clone();
+            tr.find("input").val("");
+            $(".new-row").before(tr);
+            updateFormIdex();
+        });
+
+        function updateFormIdex() {
+            $(".form-tr").each(function(index, el){
+                transaction_date = $(el).find("input[name$='-transaction_date']");
+                designation = $(el).find("input[name$='-designation']");
+                unit_price = $(el).find("input[name$='-unit_price']");
+                total = $(el).find("input[name$='-total']");
+                observation = $(el).find("input[name$='-observation']");
+
+                transaction_date.attr({"name": `form-${index}-transaction_date`, "id":`id_form-${index}-transaction_date`})
+                designation.attr({"name": `form-${index}-designation`, "id":`id_form-${index}-designation`})
+                unit_price.attr({"name": `form-${index}-unit_price`, "id":`id_form-${index}-unit_price`})
+                total.attr({"name": `form-${index}-total`, "id":`id_form-${index}-total`})
+                observation.attr({"name": `form-${index}-observation`, "id":`id_form-${index}-observation`})
+            });
+
+            $('#id_form-TOTAL_FORMS').val($('.form-tr').length);
+        }
+    
+        function calculateTotals() {
+            var total = 0;
+
+            $("table .form-tr").each(function () {
+                var quantity_or_days = parseFloat($(this).find("input[name$='-quantity_or_days']").val());
+                var unit_price = parseFloat($(this).find("input[name$='-unit_price']").val());
+                var monthly_price_input = $(this).find("input[name$='-monthly_price']");
+
+                var total_monthly_price = quantity_or_days * unit_price;
+                if ($.isNumeric(total_monthly_price)) {
+                    monthly_price_input.val(total_monthly_price.toFixed(2));
+                    total += total_monthly_price;
+                }
+            });
+
+            $(".total").text(total.toFixed(2));
+        }
+
+        calculateTotals();
+
+        $("table").on("keyup", ".form-tr input", function () {
+            var total = 0;
+            tr = $(this).parents("tr");
+            var quantity_or_days = parseFloat($(tr).find("input[name$='-quantity_or_days']").val());
+            var unit_price = parseFloat($(tr).find("input[name$='-unit_price']").val());
+            var monthly_price_input = $(tr).find("input[name$='-monthly_price']");
+
+            var total_monthly_price = quantity_or_days * unit_price;
+            if ($.isNumeric(total_monthly_price)) {
+                monthly_price_input.val(total_monthly_price.toFixed(2));
+            }
+            else {
+                monthly_price_input.val("");
+            }
+
+            calculateTotals();
+        });
+    </script>
+{% endblock scripts %}

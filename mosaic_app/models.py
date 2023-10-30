@@ -51,11 +51,7 @@ class FundManagement(models.Model):
     There's also an attribute to track withdrawals, which can either be from cash or labels.
     """
     label = models.CharField(_("Label"),max_length=200)
-    transaction_date = models.DateField(_("Transaction Date"))
     account_number = models.CharField(_("Account Number"),max_length=20, null=True, blank=True)
-    entries = models.TextField(_("Entries"),)
-    quantities = models.PositiveIntegerField(_("Quantities"))
-    total = models.DecimalField(_("Total"),max_digits=10, decimal_places=2)
     
     def __str__(self):
         return f"{self.label}"
@@ -63,6 +59,23 @@ class FundManagement(models.Model):
     class Meta:
         verbose_name = _("Fund management ")
         verbose_name_plural = _("Fund managements")
+        
+class FundItem(models.Model):
+    fundmanagement = models.ForeignKey("FundManagement", related_name="items", verbose_name=_("Fund Management"), on_delete=models.CASCADE)
+    transaction_date = models.DateField(_("Transaction Date"))
+    designation = models.CharField(_("Designation"), max_length=255)
+    unit_price = models.CharField(_("Unit price"), max_length=50)
+    total = models.CharField(_("Total"), max_length=50)
+    observation = models.CharField(_("Observation"), max_length=255)    
+
+    def __str__(self):
+        return ""
+
+    class Meta:
+        db_table = 'fund_items'
+        managed = True
+        verbose_name = 'Fund Item'
+        verbose_name_plural = 'Fund Items'
     
 class Chat(models.Model):
     title = models.CharField(_("Title"), null=True, blank=True, max_length=50)
