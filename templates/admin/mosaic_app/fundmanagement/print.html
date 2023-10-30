@@ -71,10 +71,13 @@
         .table-content .no-bottom-border {
             border-bottom: none;
         }
-        .paper-bg {
-            background-image: url("{% static '/images/paper-bg.png' %}");
-            background-position: center;
-            background-repeat: no-repeat;
+        .paper-bg img {
+            position: absolute;
+            opacity: 1;
+            left: 50%;
+            top: 50%;
+            z-index: -1;
+            transform: translate(-50%, -50%);
         }
         </style>
     </head>
@@ -97,7 +100,10 @@
                     <tr>
                         <td>
                             <div class="row">
-                                <div class="w-100 paper-bg">
+                                <div class="w-100">
+                                    <div class="paper-bg">
+                                        <img src="{% static '/images/paper-bg.png' %}" alt="">
+                                    </div>
                                     <table class="table table-bodered table-content">
                                         <tr>
                                             <td style="padding: 2px;" colspan="6">
@@ -128,16 +134,19 @@
                 
                                         <tr>
                                             <td style="padding: 2px;" colspan="3"><b><strong>{% trans 'TOTAL' %}</strong></b></td>
-                                            <td colspan="2"></td>
-                                            <td style="padding: 2px;" colspan="1"><strong><b><span class="total">{{ invoice.total_amount }}</span></b></strong></td>
+                                            <td colspan="2">
+                                                <strong><b><span class="total">{{ fundmanagement.grand_total }}</span></b></strong>
+                                            </td>
+                                            <td style="padding: 2px;" colspan="1"></td>
                                         </tr>
                                         <tr>
                                             <td colspan="6">
                                                 <h3><strong>
                                                     
                                                     {% blocktrans %}
-                                                        Account N<sup>o</sup>:  {{ invoice.bank_account|default:'' }}
+                                                        Account N<sup>o</sup>: 
                                                     {% endblocktrans %}
+                                                    {{ fundmanagement.account_number }}
                                                 </strong></h3>
                                             </td>
                                         </tr>

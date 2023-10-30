@@ -56,6 +56,10 @@ class FundManagement(models.Model):
     def __str__(self):
         return f"{self.label}"
     
+    def grand_total(self):
+        t = self.items.aggregate(total=Sum("total"))
+        return t['total'] or 0
+    
     class Meta:
         verbose_name = _("Fund management ")
         verbose_name_plural = _("Fund managements")
