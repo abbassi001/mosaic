@@ -223,16 +223,6 @@ class ArchivedDocumentAdmin(admin.ModelAdmin):
     list_filter = ('document_type', 'is_confidential')
     search_fields = ('title', 'description', 'uploaded_by__username')
     readonly_fields = ('upload_date',)
-
-    fieldsets = (
-        (None, {
-            'fields': ('document', 'title', 'description')
-        }),
-        ('Additional Information', {
-            'fields': ('uploaded_by', 'upload_date', 'document_type', 'is_confidential'),
-            'classes': ('collapse',)  # Group the additional information in a collapsible section
-        })
-    )
     
     def save_model(self, request, obj, form, change):
         if not change:

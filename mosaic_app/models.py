@@ -223,9 +223,9 @@ class ArchivedDocument(models.Model):
         ('other', 'Other')
     ]
 
-    document = models.FileField(_("Document"), upload_to='archived_documents')
-    uploaded_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name=_("Uploaded By"))
-    upload_date = models.DateTimeField(_("Upload Date"), auto_now_add=True)
+    document = models.FileField(_("Document"), upload_to='archived_documents/')
+    uploaded_by = models.ForeignKey(settings.AUTH_USER_MODEL, editable=False, on_delete=models.CASCADE, verbose_name=_("Uploaded By"))
+    upload_date = models.DateTimeField(_("Upload Date"), auto_now_add=True, auto_now=False)
     title = models.CharField(_("Title"), max_length=255)
     description = models.TextField(_("Description"), null=True, blank=True)
     document_type = models.CharField(_("Document Type"), choices=DOCUMENT_TYPES, default='other', max_length=20)
