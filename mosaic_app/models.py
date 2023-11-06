@@ -214,9 +214,29 @@ class InvoiceItem(models.Model):
         
         super().save(*args, **kwargs)
         
-# Assume invoice is an instance of Invoice
+class ArchivedDocument(models.Model):
+    DOCUMENT_TYPES = [
+        ('pdf', 'PDF'),
+        ('docx', 'Word'),
+        ('xlsx', 'Excel'),
+        ('txt', 'Text'),
+        ('other', 'Other')
+    ]
 
+    document = models.FileField(_("Document"), upload_to='archived_documents')
+    uploaded_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name=_("Uploaded By"))
+    upload_date = models.DateTimeField(_("Upload Date"), auto_now_add=True)
+    title = models.CharField(_("Title"), max_length=255)
+    description = models.TextField(_("Description"), null=True, blank=True)
+    document_type = models.CharField(_("Document Type"), choices=DOCUMENT_TYPES, default='other', max_length=20)
+    is_confidential = models.BooleanField(_("Confidential"), default=False)
+    
+    class Meta:
+        verbose_name = _("Archived Document")
+        verbose_name_plural = _("Archived Documents")
 
+    def __str__(self):
+        return f"{self.title} - Uploaded by {self.uploaded_by} on {self.upload_date}"
 
 
 

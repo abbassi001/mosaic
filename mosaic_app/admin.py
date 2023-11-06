@@ -154,7 +154,6 @@ class ChatAdmin(admin.ModelAdmin):
         
         return render(request, template_name=template_name, context=context)
     
-    
 @admin.register(Staff)
 class StaffAdmin(admin.ModelAdmin):
     list_display = ('first_name', 'last_name', 'position')
@@ -218,5 +217,25 @@ class InvoiceAdmin(admin.ModelAdmin):
         return render(request, template_name=template_name, context=context)
     
 
+@admin.register(ArchivedDocument)
+class ArchivedDocumentAdmin(admin.ModelAdmin):
+    list_display = ('title', 'uploaded_by', 'upload_date', 'document_type', 'is_confidential')
+    list_filter = ('document_type', 'is_confidential')
+    search_fields = ('title', 'description', 'uploaded_by__username')
+    readonly_fields = ('upload_date',)
 
-
+    fieldsets = (
+        (None, {
+            'fields': ('document', 'title', 'description')
+        }),
+        ('Additional Information', {
+            'fields': ('uploaded_by', 'upload_date', 'document_type', 'is_confidential'),
+            'classes': ('collapse',)  # Group the additional information in a collapsible section
+        })
+    )
+    
+    def save_model(self, request, obj, form, change):
+        if not change:
+            obj.uploaded_by = request.user
+                    
+        return super().save_model(request, obj, form, change)
