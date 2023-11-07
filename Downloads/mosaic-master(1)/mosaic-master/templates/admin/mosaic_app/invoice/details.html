@@ -1,0 +1,218 @@
+{% extends 'admin/base.html' %}
+
+{% load static number2words i18n admin_urls admin_list humanize customtag %}
+
+
+{% block extrastyle %}
+    {{ block.super }}
+    <style>
+        .incoice-status {
+            position: relative;
+        }
+        .incoice-status .unpaid {
+            background-color: rgb(202, 23, 23);
+            color: rgb(255, 255, 255);
+            padding: 10px;
+            text-align: center;
+        }
+        .incoice-status .paid {
+            padding: 10px;
+            text-align: center;
+            background-color: rgb(91, 189, 75);
+            color: rgb(255, 255, 255);
+        }
+    </style>
+{% endblock extrastyle %}
+    
+
+{% block content %}
+    <div class="col-lg-12">
+        <div class="row chat-window">
+  
+            <div class="col-lg-12 col-xl-12 chat-cont-left">
+                <div class="card mb-sm-3 mb-md-0 contacts_card flex-fill">
+                    
+                    <div class="card-body contacts_body">
+                        <img src="{% static '/images/header.png' %}" alt="header" class="w-100">
+                        
+                        <form action="" method="post">
+                            <div class="incoice-status">
+                                <div class="{{ invoice.status }}">
+                                    <h4>{{ invoice.status.title }}</h4>
+                                </div>
+                            </div>
+                            {% csrf_token %}
+                            {{ invoiceItemFactory.management_form }}
+                            <table class="table table-bodered border ">
+                                <tr>
+                                    <td colspan="2"{{ invoice.invoice_type }}</td>
+                                    <td>{{ invoice.invoice_number }}</td>
+                                    <td colspan="2">{% trans 'DATE' %} {{ invoice.invoice_date|date:'d/m/Y' }}</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5">
+                                        &nbsp;
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3">{% trans 'SUPPLIER/CARRIER' %}</td>
+                                    <td colspan="2">{% trans 'CLIENT' %}</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3">
+                                        <div>MOSAIC INTERNATIONAL</div>
+                                        <div>BP: 851 N'DJAMENA TCHAD</div>
+                                        <div>TEL: 62 68 68 12</div>
+                                        <div>Email: contact@mozaikinternational.com</div>
+                                    </td>
+                                    <td colspan="2">
+                                        {{invoice.client_information|safe}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div>OBJET:</div>
+                                        <div>LIEU DE DEVELOPPEMNT:</div>
+                                    </td>
+                                    <td colspan="4">
+                                        <div>{{ invoice.invoice_object }}</div>
+                                        <div>{{ invoice.invoice_location }}</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>{% trans 'Designation' %}</td>
+                                    <td>{% trans 'Qty/Days' %}</td>
+                                    <td>{% trans 'Price per Unit/Day' %}</td>
+                                    <td>{% trans 'Monthly Amount' %}</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5">
+                                        {{ invoiceItemFactory.non_form_errors }}
+                                    </td>
+                                </tr>
+                                
+                                {% for form in invoiceItemFactory %}
+                                    {% if form.errors %}
+                                        <tr>
+                                            <td colspan="5">{{ form.errors }}</td>
+                                        </tr>
+                                    {% endif %}
+                                    
+                                    <tr class="form-tr">
+                                        <td class="d-none">{{ form.id }}</td>
+                                        <td> {{ form.designations }} </td>
+                                        <td> {{ form.quantity_or_days }} </td>
+                                        <td> {{ form.unit_price }} </td>
+                                        <td> {{ form.monthly_price }} </td>
+                                    </tr>
+
+                                {% endfor %}
+                                <tr class="new-row"></tr>
+
+                                <tr>
+                                    <td colspan="3"><b><strong>{% trans 'TOTAL' %}</strong></b></td>
+                                    <td><strong><b><span class="total"></span></b></strong></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5">
+                                        <span class="btn btn-outline-info btn-add-item mt-2"><i class="fa fa-plus"></i> <strong>Add item</strong></span>
+                                        <button type="submit" class="btn btn-primary mt-2"><i class="fa fa-save"></i> Save Now</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5">
+                                        Arrested this invoice at the sum of: 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5">
+                                        <h3><strong>
+                                            
+                                            {% blocktrans %}
+                                                Account N<sup>o</sup>: 
+                                            {% endblocktrans %}
+                                            
+                                        </strong></h3>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                            
+
+                        <img src="{% static '/images/footer.png' %}" alt="header" class="w-100">
+                    </div>
+                    
+                </div>
+                <a href="?mode=print" class="btn btn-primary text-light"><i class="fa fa-print"></i> PRINT</a>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock content %}
+
+
+{% block scripts %}
+    <script>
+        $(".btn-add-item").on("click", function(){
+            tr = $(".form-tr:last").clone();
+            tr.find("input").val("");
+            $(".new-row").before(tr);
+            updateFormIdex();
+        });
+
+        function updateFormIdex() {
+            $(".form-tr").each(function(index, el){
+                designations = $(el).find("input[name$='-designations']");
+                quantity_or_days = $(el).find("input[name$='-quantity_or_days']");
+                unit_price = $(el).find("input[name$='-unit_price']");
+                monthly_price = $(el).find("input[name$='-monthly_price']");
+
+                designations.attr({"name": `form-${index}-designations`, "id":`id_form-${index}-designations`})
+                quantity_or_days.attr({"name": `form-${index}-quantity_or_days`, "id":`id_form-${index}-quantity_or_days`})
+                unit_price.attr({"name": `form-${index}-unit_price`, "id":`id_form-${index}-unit_price`})
+                monthly_price.attr({"name": `form-${index}-monthly_price`, "id":`id_form-${index}-monthly_price`})
+            });
+
+            $('#id_form-TOTAL_FORMS').val($('.form-tr').length);
+        }
+    
+        function calculateTotals() {
+            var total = 0;
+
+            $("table .form-tr").each(function () {
+                var quantity_or_days = parseFloat($(this).find("input[name$='-quantity_or_days']").val());
+                var unit_price = parseFloat($(this).find("input[name$='-unit_price']").val());
+                var monthly_price_input = $(this).find("input[name$='-monthly_price']");
+
+                var total_monthly_price = quantity_or_days * unit_price;
+                if ($.isNumeric(total_monthly_price)) {
+                    monthly_price_input.val(total_monthly_price.toFixed(2));
+                    total += total_monthly_price;
+                }
+            });
+
+            $(".total").text(total.toFixed(2));
+        }
+
+        calculateTotals();
+
+        $("table").on("keyup", ".form-tr input", function () {
+            var total = 0;
+            tr = $(this).parents("tr");
+            var quantity_or_days = parseFloat($(tr).find("input[name$='-quantity_or_days']").val());
+            var unit_price = parseFloat($(tr).find("input[name$='-unit_price']").val());
+            var monthly_price_input = $(tr).find("input[name$='-monthly_price']");
+
+            var total_monthly_price = quantity_or_days * unit_price;
+            if ($.isNumeric(total_monthly_price)) {
+                monthly_price_input.val(total_monthly_price.toFixed(2));
+            }
+            else {
+                monthly_price_input.val("");
+            }
+
+            calculateTotals();
+        });
+    </script>
+{% endblock scripts %}
