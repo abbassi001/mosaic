@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     
     'django.contrib.humanize',
     
+    'authentication',
+    
     'mosaic_app',
     'number2words',
 ]
@@ -59,6 +61,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'mosaic_project.urls'
+
+AUTH_USER_MODEL = "authentication.User"
 
 TEMPLATES = [
     {
