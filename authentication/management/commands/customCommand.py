@@ -20,10 +20,11 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         
-        first_name = last_name = gender = email = password1 = ""
+        first_name = last_name = username = email = password1 = ""
 
         first_name = input("Enter first name:")
         last_name = input("Enter last name:")
+        username = input("Enter unique username:")
         # gender = input("Gender male/female: ")
         email = input("Enter email: ")
         password1 = input("Enter password: ")
@@ -43,6 +44,9 @@ class Command(BaseCommand):
         #     return
         if email is None:
             self.stderr.write("\n Email is equired")
+            return
+        if username is None:
+            self.stderr.write("\n Username is equired")
             return
         if '@' not in email:
             self.stderr.write("\n Email should contain @")
@@ -68,6 +72,7 @@ class Command(BaseCommand):
             else:
                 user = User(
                     email= email,
+                    username= username,
                     password= password2,
                     first_name=first_name,
                     last_name=last_name,
@@ -80,10 +85,10 @@ class Command(BaseCommand):
                 self.stdout.write("Account created successfully \n")
 
                 self.stdout.write("============================== \n\n")
-                self.stdout.write("Names: "+ first_name+ " "+ last_name +"\n")
-                # self.stdout.write("Gender: "+ gender +"\n")
+                self.stdout.write("Names: "+ user.first_name+ " "+ user.last_name +"\n")
+                self.stdout.write("Username: "+ user.username +"\n")
                 # self.stdout.write("Date of birth: "+ date_of_birth +"\n")
-                self.stdout.write("Email: "+ email +"\n\n")
+                self.stdout.write("Email: "+ user.email +"\n\n")
                 self.stdout.write("============================== \n")
         else:
             self.stdout.write("Password didn't match")
