@@ -1,0 +1,60 @@
+{% extends 'admin/base.html' %}
+
+{% load static i18n admin_urls admin_list humanize customtag %}
+
+{% block content %}
+    <div class="col-lg-12">
+        <div class="row chat-window">
+
+            <div class="col-lg-5 col-xl-4 chat-cont-left">
+                <div class="card mb-sm-3 mb-md-0 contacts_card flex-fill">
+                    <div class="card-header chat-search">
+                        <a href="{% url 'admin:new-chat' %}" class="btn btn-info text-dark">New Chat</a>
+                    </div>
+                    <div class="card-body contacts_body chat-users-list chat-scroll">
+                        {% for chat in chats %}
+                        <a href="{% url 'admin:chatting' chat.reference_code %}" class="d-flex p-2" style="border-bottom: 2px solid #aaa;">
+                            <div class="media-img-wrap flex-shrink-0">
+                                <div class="avatar avatar-away">
+                                    <img src="{% static 'images/avatar.png' %}" alt="User Image"
+                                        class="avatar-img rounded-circle">
+                                </div>
+                            </div>
+                            <div class="media-body flex-grow-1">
+                                <div>
+                                    <div class="user-name d-flex justify-content-between">
+                                        <div class="text-dark">{{chat|get_chat_name:request|title}}</div>
+                                        <div class="text-secondary">{{chat.histories.last.timestamp|naturaltime}}</div>
+                                    </div>
+                                    <div class="user-last-chat text-dark">{{chat.histories.last.message|truncatechars:20}}</div>
+                                </div>
+                                <div>
+                                    
+                                    {% comment %} <div class="badge badge-success badge-pill">15</div> {% endcomment %}
+                                </div>
+                            </div>
+                        </a>
+                        {% endfor %}
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-7 col-xl-8 chat-cont-right">
+
+                <div class="card mb-0">
+                    <div class="card-body msg_card_body chat-scroll card-stretch">
+                        <br><br><br><br><br><br>
+                        <h1>Open chat or click on <a href="{% url 'admin:new-chat' %}">New chat</a></h1>
+                        <p>
+                            <br><br><br><br><br><br><br><br><br>
+                        </p>
+                        <br><br><br><br><br><br><br><br><br>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock content %}
