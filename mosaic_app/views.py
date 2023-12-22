@@ -14,11 +14,14 @@ def change_language(request, new_language):
 
 
 def index(request):
-    
-
-    return render(request, 'Financo/index.html')
+    context = {
+        "title": "Mosaic International"
+    }
+    return render(request, 'Financo/index.html', context=context)
 
 
 def about_us(request):
-    
-    return render(request,"Financo/about-us.html")
+    context = {
+        "title": "About us | Mosaic International"
+    }
+    return render(request,"Financo/about-us.html", context=context)

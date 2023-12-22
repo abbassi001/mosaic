@@ -10,7 +10,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>{{ title  }}|| Mosaic</title>
+    <title>{{ title|default:"Mosaic International"  }}</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -143,7 +143,7 @@
                                     <li>
                                         <a href="{% url 'about-us' %}">{% trans 'ABOUT US' %}</a>
                                     </li>
-                                    <li><a href="services">{% trans 'SERVICES' %}</a>
+                                    {% comment %} <li><a href="services">{% trans 'SERVICES' %}</a> {% endcomment %}
                                     </li>
                                     <li><a href="{% url 'admin:login' %}">{% trans 'LOGIN' %}</a></li>
                                 </ul>
