@@ -163,15 +163,12 @@
                             <nav id="dropdown">
                                 <ul>
                                     <li>
-                                        <a href="index.html">{% trans 'HOME' %}</a>
+                                        <a href="/">{% trans 'HOME' %}</a>
                                     </li>
                                     <li>
-                                        <a href="about.html">{% trans 'ABOUT US' %}</a>
+                                        <a href="{% url 'about-us' %}">{% trans 'ABOUT US' %}</a>
                                     </li>
-                                    <li>
-                                        <a href="services.html">{% trans 'SERVICES' %}</a>
-                                    </li>
-                                    <li><a href="contact.html">{% trans 'CONTACT' %}</a></li>
+                                    <li><a href="{% url 'admin:login' %}">{% trans 'CONTACT' %}</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -195,7 +192,7 @@
                 <div class="col-xl-3 col-lg-3 col-md-6 col-12 order-md-1 order-1">
                     <div class="single-footer-widget">
                         <div class="footer-logo">
-                            <a href="index.html"><img src="{% static 'images/logo.png' %}" alt="FINANCO"></a>
+                            <a href="/"><img src="{% static 'images/logo.png' %}" alt="FINANCO"></a>
                         </div>
                         <p  style="text-align: justify;">
                             
